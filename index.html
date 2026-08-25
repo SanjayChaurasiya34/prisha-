@@ -1,0 +1,1013 @@
+bash
+
+cat > /mnt/user-data/outputs/sanjay-prisha.html << 'HTMLEOF'
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sanjay 💗 Prisha</title>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Quicksand:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ================================================================
+   GLOBAL RESET
+================================================================ */
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+
+/* ================================================================
+   MAIN SITE — romantic pink/blush theme
+================================================================ */
+:root{
+  --rose:#d94f70; --rose-deep:#a83458; --lavender:#b07fd4;
+  --gold:#e2a24c; --ink:#4a2438; --shadow:rgba(168,52,88,.18);
+}
+
+body{
+  font-family:'Quicksand',sans-serif;
+  background:radial-gradient(circle at 20% 10%,#ffe3ea 0%,#ffd6e0 40%,#f7c6d9 75%,#eab8d0 100%);
+  min-height:100vh; overflow-x:hidden; color:var(--ink);
+}
+
+/* RAIN */
+#rain{position:fixed;inset:0;pointer-events:none;z-index:1;overflow:hidden;}
+.drop{position:absolute;top:-10%;opacity:.8;animation:fall linear infinite;
+  filter:drop-shadow(0 0 5px rgba(217,79,112,.2));}
+@keyframes fall{
+  0%{transform:translateY(-10vh) translateX(0) rotate(0deg);opacity:0;}
+  10%{opacity:.9;}
+  100%{transform:translateY(115vh) translateX(var(--drift,20px)) rotate(30deg);opacity:.1;}
+}
+@keyframes floatUp{0%{opacity:1;transform:translateY(0);}100%{opacity:0;transform:translateY(-90px);}}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:200;
+  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;
+  padding:12px 22px;background:rgba(255,255,255,.55);backdrop-filter:blur(16px);
+  border-bottom:1px solid rgba(217,79,112,.15);}
+.brand{font-family:'Dancing Script',cursive;font-size:26px;color:var(--rose-deep);font-weight:700;white-space:nowrap;}
+.navlinks{display:flex;gap:5px;flex-wrap:wrap;}
+.navlinks button{border:none;background:rgba(255,255,255,.65);color:var(--rose-deep);
+  padding:8px 13px;border-radius:999px;font-family:'Quicksand',sans-serif;
+  font-weight:700;font-size:12.5px;cursor:pointer;transition:all .22s ease;
+  box-shadow:0 1px 4px rgba(168,52,88,.1);}
+.navlinks button:hover{background:linear-gradient(135deg,var(--rose),var(--lavender));color:#fff;transform:translateY(-2px);}
+.navlinks button.active{background:linear-gradient(135deg,var(--rose),var(--rose-deep));color:#fff;}
+
+/* PAGES */
+main{position:relative;z-index:5;max-width:940px;margin:0 auto;padding:44px 22px 130px;}
+.page{display:none;animation:riseIn .5s ease;}
+.page.active{display:block;}
+@keyframes riseIn{from{opacity:0;transform:translateY(18px);}to{opacity:1;transform:translateY(0);}}
+
+.hero-emoji{font-size:76px;text-align:center;animation:bob 3.2s ease-in-out infinite;
+  filter:drop-shadow(0 8px 14px rgba(168,52,88,.25));}
+@keyframes bob{0%,100%{transform:translateY(0) rotate(-2deg);}50%{transform:translateY(-14px) rotate(2deg);}}
+
+h1.title{font-family:'Dancing Script',cursive;font-size:52px;text-align:center;
+  color:var(--rose-deep);margin-top:6px;line-height:1.1;}
+h1.title .accent{color:var(--lavender);}
+.subtitle{text-align:center;color:var(--rose);font-weight:600;margin-top:8px;font-size:15.5px;}
+
+.card{background:rgba(255,255,255,.88);border-radius:26px;padding:30px 34px;
+  margin-top:28px;box-shadow:0 18px 40px var(--shadow);border:1px solid rgba(255,255,255,.7);}
+.badge{display:inline-flex;align-items:center;gap:6px;
+  background:linear-gradient(135deg,var(--rose),var(--lavender));
+  color:#fff;font-size:12.5px;font-weight:700;padding:6px 14px;border-radius:999px;margin-bottom:14px;}
+.card p{font-size:16.5px;line-height:1.85;margin-bottom:12px;color:#5a3247;}
+.card p:last-child{margin-bottom:0;}
+
+/* DATE ASK on Home */
+.date-ask-home{
+  background:rgba(255,255,255,.88);border-radius:26px;padding:32px 34px;
+  margin-top:28px;box-shadow:0 18px 40px var(--shadow);border:1px solid rgba(255,255,255,.7);
+  text-align:center;
+}
+.date-ask-home h2{font-family:'Dancing Script',cursive;font-size:38px;color:var(--rose-deep);margin-bottom:10px;}
+.date-ask-home p{font-size:15.5px;color:#5a3247;margin-bottom:24px;line-height:1.7;}
+.date-btns{display:flex;gap:20px;justify-content:center;align-items:center;min-height:80px;position:relative;}
+#yesBtn{padding:15px 38px;border-radius:999px;border:none;
+  background:linear-gradient(135deg,var(--rose),var(--rose-deep));color:#fff;
+  font-family:'Quicksand',sans-serif;font-weight:700;font-size:17px;cursor:pointer;
+  box-shadow:0 10px 22px rgba(168,52,88,.25);transition:transform .2s, box-shadow .2s;}
+#yesBtn:hover{transform:scale(1.08);box-shadow:0 14px 28px rgba(168,52,88,.35);}
+#noBtn{padding:15px 38px;border-radius:999px;border:2px solid var(--rose);
+  background:#fff;color:var(--rose-deep);font-family:'Quicksand',sans-serif;
+  font-weight:700;font-size:17px;cursor:pointer;transition:transform .15s;
+  box-shadow:0 6px 16px rgba(168,52,88,.1); user-select:none; -webkit-user-select:none;}
+#noBtn.roaming{position:fixed;z-index:9999;transition:none !important;}
+.yes-celebrate{display:none;margin-top:22px;animation:riseIn .5s ease;}
+.yes-celebrate.show{display:block;}
+.yes-celebrate p{font-family:'Dancing Script',cursive;font-size:32px;color:var(--rose-deep);}
+.yes-celebrate span{font-size:15px;color:#8a5a72;display:block;margin-top:6px;font-family:'Quicksand',sans-serif;}
+
+/* GRID */
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:28px;}
+@media(max-width:640px){.grid3{grid-template-columns:1fr;}}
+.tile{background:rgba(255,255,255,.88);border:1.5px solid rgba(217,79,112,.15);
+  border-radius:20px;padding:22px 14px;text-align:center;cursor:pointer;
+  transition:all .25s ease;box-shadow:0 8px 20px rgba(168,52,88,.08);}
+.tile:hover{transform:translateY(-6px);box-shadow:0 16px 30px var(--shadow);border-color:var(--rose);}
+.tile .t-icon{font-size:30px;display:block;margin-bottom:9px;}
+.tile .t-label{font-weight:700;color:var(--rose-deep);font-size:14.5px;}
+.tile .t-count{font-size:12px;color:var(--lavender);margin-top:5px;font-weight:600;}
+
+/* BIG TAP */
+.big-tap{display:inline-flex;flex-direction:column;align-items:center;justify-content:center;
+  background:linear-gradient(160deg,#fff7f9,#ffe0ea);border:2px solid rgba(217,79,112,.2);
+  border-radius:24px;padding:34px 54px;cursor:pointer;
+  transition:all .25s ease;box-shadow:0 12px 28px rgba(168,52,88,.12);margin-top:10px;}
+.big-tap:hover{transform:scale(1.06);box-shadow:0 18px 34px var(--shadow);}
+.big-tap .bt-icon{font-size:52px;}
+.big-tap .bt-lbl{font-weight:700;font-size:16px;color:var(--rose-deep);margin-top:10px;}
+.count-big{font-size:22px;font-weight:700;color:var(--rose-deep);margin-top:16px;}
+
+/* NOTE BOX (no WA) */
+.note-box{margin-top:24px;}
+.note-box h3{color:var(--rose-deep);font-size:17px;font-weight:700;margin-bottom:9px;}
+.note-box textarea{width:100%;border:1.5px solid rgba(217,79,112,.25);border-radius:14px;
+  padding:13px 15px;font-family:'Quicksand',sans-serif;font-size:15px;
+  resize:vertical;min-height:85px;outline:none;background:rgba(255,255,255,.8);color:var(--ink);}
+.note-box textarea:focus{border-color:var(--rose);}
+.save-note-btn{display:inline-flex;align-items:center;gap:8px;margin-top:11px;
+  background:linear-gradient(135deg,var(--rose),var(--lavender));color:#fff;
+  border:none;padding:12px 24px;border-radius:999px;font-family:'Quicksand',sans-serif;
+  font-weight:700;font-size:14.5px;cursor:pointer;transition:all .22s ease;
+  box-shadow:0 8px 20px var(--shadow);}
+.save-note-btn:hover{transform:translateY(-2px);}
+.note-saved-msg{font-size:13px;color:#25a356;font-weight:700;margin-top:8px;display:none;}
+
+/* PROMISES */
+.promise-list{list-style:none;margin-top:6px;}
+.promise-list li{display:flex;gap:12px;align-items:flex-start;
+  padding:12px 0;border-bottom:1px dashed rgba(217,79,112,.18);font-size:15.5px;color:#5a3247;line-height:1.65;}
+.promise-list li:last-child{border-bottom:none;}
+.promise-list .num{font-weight:700;color:var(--gold);min-width:28px;font-size:17px;}
+
+/* GIFTS */
+.gift-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:8px;}
+@media(max-width:560px){.gift-grid{grid-template-columns:1fr;}}
+.gift{background:linear-gradient(160deg,#fff,#fff0f5);border-radius:18px;padding:20px;
+  border:1px solid rgba(217,79,112,.12);text-align:center;}
+.gift .g-icon{font-size:28px;}
+.gift h3{color:var(--rose-deep);margin:9px 0 4px;font-size:14.5px;}
+.gift p{font-size:13px;color:#8a5a72;}
+
+/* MEMORIES */
+.memory{background:rgba(255,255,255,.88);border-radius:16px;padding:17px;
+  margin-bottom:11px;display:flex;gap:14px;align-items:center;border:1px solid rgba(217,79,112,.1);}
+.memory .m-icon{font-size:27px;}
+.memory strong{color:var(--rose-deep);display:block;margin-bottom:2px;}
+.memory span{font-size:13px;color:#8a5a72;}
+
+/* CONFETTI */
+#confetti{position:fixed;inset:0;pointer-events:none;z-index:500;}
+
+/* MUSIC */
+#musicBtn{position:fixed;bottom:26px;right:26px;width:54px;height:54px;border-radius:50%;
+  border:none;background:linear-gradient(135deg,var(--lavender),var(--rose));color:#fff;
+  font-size:20px;cursor:pointer;z-index:400;box-shadow:0 10px 22px rgba(168,52,88,.3);
+  display:flex;align-items:center;justify-content:center;transition:transform .2s;}
+#musicBtn:hover{transform:scale(1.08);}
+#musicBtn.playing{animation:mpulse 1.4s ease-in-out infinite;}
+@keyframes mpulse{0%,100%{box-shadow:0 10px 22px rgba(168,52,88,.3);}50%{box-shadow:0 10px 34px rgba(217,79,112,.6);}}
+
+footer{text-align:center;padding:28px;color:var(--rose-deep);font-family:'Dancing Script',cursive;
+  font-size:20px;position:relative;z-index:5;}
+
+/* ================================================================
+   ADMIN DASHBOARD — dark professional theme
+================================================================ */
+#adminDash{
+  display:none;
+  min-height:100vh;
+  background:#0d0d18;
+  font-family:'Inter',sans-serif;
+  color:#e8e8f0;
+}
+
+.adm-header{
+  background:linear-gradient(135deg,#1a1a2e,#16213e);
+  border-bottom:1px solid rgba(217,79,112,.25);
+  padding:20px 32px;
+  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;
+  position:sticky;top:0;z-index:100;
+}
+.adm-title{font-size:20px;font-weight:700;color:#fff;display:flex;align-items:center;gap:10px;}
+.adm-title span{font-size:13px;font-weight:400;color:#9a9ab8;margin-left:8px;}
+.adm-badge{background:rgba(217,79,112,.15);border:1px solid rgba(217,79,112,.35);
+  color:#e05575;padding:5px 13px;border-radius:6px;font-size:12px;font-weight:600;}
+.adm-actions{display:flex;gap:10px;}
+.adm-btn{padding:9px 18px;border-radius:8px;border:none;font-family:'Inter',sans-serif;
+  font-weight:600;font-size:13px;cursor:pointer;transition:all .2s;}
+.adm-btn.refresh{background:rgba(255,255,255,.08);color:#e8e8f0;border:1px solid rgba(255,255,255,.12);}
+.adm-btn.refresh:hover{background:rgba(255,255,255,.14);}
+.adm-btn.clear{background:rgba(217,79,112,.15);color:#e05575;border:1px solid rgba(217,79,112,.3);}
+.adm-btn.clear:hover{background:rgba(217,79,112,.25);}
+.adm-btn.back{background:linear-gradient(135deg,#d94f70,#a83458);color:#fff;}
+
+.adm-body{padding:28px 32px;max-width:1200px;margin:0 auto;}
+@media(max-width:700px){.adm-body{padding:18px 16px;}}
+
+/* Stats row */
+.stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:16px;margin-bottom:28px;}
+.stat-card{
+  background:linear-gradient(160deg,#1a1a2e,#16213e);
+  border:1px solid rgba(255,255,255,.07);
+  border-radius:14px;padding:20px 18px;
+  transition:transform .2s ease;
+}
+.stat-card:hover{transform:translateY(-3px);}
+.stat-card .s-icon{font-size:26px;margin-bottom:8px;}
+.stat-card .s-val{font-size:32px;font-weight:700;color:#fff;margin-bottom:2px;}
+.stat-card .s-val.yes-val{color:#25d366;}
+.stat-card .s-val.no-val{color:#ff6b6b;}
+.stat-card .s-label{font-size:12px;color:#9a9ab8;font-weight:500;text-transform:uppercase;letter-spacing:.5px;}
+
+/* Panels */
+.adm-panels{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+@media(max-width:900px){.adm-panels{grid-template-columns:1fr;}}
+.adm-panel{background:#1a1a2e;border:1px solid rgba(255,255,255,.07);border-radius:16px;overflow:hidden;}
+.adm-panel.wide{grid-column:1/-1;}
+.panel-head{padding:16px 20px;border-bottom:1px solid rgba(255,255,255,.06);
+  display:flex;align-items:center;justify-content:space-between;}
+.panel-head h3{font-size:14px;font-weight:600;color:#fff;display:flex;align-items:center;gap:8px;}
+.panel-head .cnt{background:rgba(217,79,112,.2);color:#e05575;font-size:11px;font-weight:700;
+  padding:3px 9px;border-radius:999px;}
+.panel-body{padding:18px 20px;max-height:380px;overflow-y:auto;}
+.panel-body::-webkit-scrollbar{width:4px;}
+.panel-body::-webkit-scrollbar-track{background:transparent;}
+.panel-body::-webkit-scrollbar-thumb{background:rgba(217,79,112,.3);border-radius:4px;}
+
+/* Timeline */
+.tl-item{display:flex;gap:12px;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.04);align-items:flex-start;}
+.tl-item:last-child{border-bottom:none;}
+.tl-dot{width:8px;height:8px;border-radius:50%;background:var(--rose-deep,#a83458);margin-top:5px;flex-shrink:0;}
+.tl-dot.kiss{background:#e05575;}
+.tl-dot.hug{background:#b07fd4;}
+.tl-dot.date-yes{background:#25d366;}
+.tl-dot.date-no{background:#ff6b6b;}
+.tl-dot.nav{background:#4a9eff;}
+.tl-dot.note{background:#e2a24c;}
+.tl-dot.sys{background:#555;}
+.tl-time{font-size:11px;color:#555870;min-width:68px;margin-top:2px;flex-shrink:0;}
+.tl-label{font-size:13.5px;color:#c8c8e0;line-height:1.4;}
+
+/* Page visits */
+.pv-row{display:flex;align-items:center;gap:12px;padding:9px 0;border-bottom:1px solid rgba(255,255,255,.04);}
+.pv-row:last-child{border-bottom:none;}
+.pv-name{font-size:13.5px;color:#c8c8e0;min-width:90px;font-weight:500;}
+.pv-bar-wrap{flex:1;height:8px;background:rgba(255,255,255,.06);border-radius:4px;overflow:hidden;}
+.pv-bar{height:100%;background:linear-gradient(90deg,#d94f70,#b07fd4);border-radius:4px;transition:width .6s ease;}
+.pv-count{font-size:12px;color:#9a9ab8;min-width:30px;text-align:right;}
+
+/* Notes */
+.note-item{background:rgba(255,255,255,.04);border-radius:10px;padding:12px 14px;margin-bottom:10px;
+  border-left:3px solid var(--rose-deep,#a83458);}
+.note-item:last-child{margin-bottom:0;}
+.note-item .n-context{font-size:11px;color:#9a9ab8;text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px;}
+.note-item .n-text{font-size:14px;color:#e8e8f0;line-height:1.5;}
+.note-item .n-time{font-size:11px;color:#555870;margin-top:6px;}
+
+.empty-msg{font-size:13px;color:#555870;text-align:center;padding:20px 0;}
+
+/* Session info */
+.sess-row{display:flex;justify-content:space-between;padding:9px 0;
+  border-bottom:1px solid rgba(255,255,255,.04);font-size:13.5px;}
+.sess-row:last-child{border-bottom:none;}
+.sess-row .sk{color:#9a9ab8;}
+.sess-row .sv{color:#e8e8f0;font-weight:600;}
+
+/* Date answer banner */
+.date-banner{
+  border-radius:14px;padding:18px 22px;margin-bottom:24px;
+  display:flex;align-items:center;gap:14px;
+  border:1px solid;
+}
+.date-banner.unanswered{background:rgba(255,200,0,.06);border-color:rgba(255,200,0,.2);}
+.date-banner.answered-yes{background:rgba(37,211,102,.08);border-color:rgba(37,211,102,.25);}
+.date-banner .db-icon{font-size:30px;}
+.date-banner .db-text strong{display:block;font-size:15px;font-weight:600;color:#fff;margin-bottom:2px;}
+.date-banner .db-text span{font-size:13px;color:#9a9ab8;}
+.date-banner.answered-yes .db-text strong{color:#25d366;}
+
+/* Last seen badge */
+.last-seen{
+  display:inline-flex;align-items:center;gap:6px;
+  background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);
+  padding:5px 12px;border-radius:6px;font-size:12px;color:#9a9ab8;
+}
+.live-dot{width:7px;height:7px;border-radius:50%;background:#25d366;
+  animation:blink 1.5s ease-in-out infinite;}
+@keyframes blink{0%,100%{opacity:1;}50%{opacity:.3;}}
+</style>
+</head>
+<body>
+
+<div id="rain"></div>
+<canvas id="confetti"></canvas>
+
+<!-- ============================================================
+     MAIN SITE
+============================================================ -->
+<div id="mainSite">
+
+<nav>
+  <div class="brand">💗 Sanjay &amp; Prisha</div>
+  <div class="navlinks">
+    <button class="navbtn active" data-page="home">🏡 Home</button>
+    <button class="navbtn" data-page="kiss">💋 Kiss</button>
+    <button class="navbtn" data-page="hug">🤗 Hug</button>
+    <button class="navbtn" data-page="letter">💌 Letter</button>
+    <button class="navbtn" data-page="promises">🌸 Promises</button>
+    <button class="navbtn" data-page="gifts">🎁 Gifts</button>
+    <button class="navbtn" data-page="memories">✨ Memories</button>
+  </div>
+</nav>
+
+<main>
+
+  <!-- HOME -->
+  <section class="page active" id="home">
+    <div class="hero-emoji">🐱💞</div>
+    <h1 class="title">For My <span class="accent">Prisha</span> 💗</h1>
+    <p class="subtitle">From your Sanjay, with all the love in the world 🌧️</p>
+
+    <div class="card">
+      <span class="badge">💭 A message from Sanjay</span>
+      <p>Prisha, I don't think I say this enough — you make every ordinary day feel like something worth looking forward to. This little page is just for you. ☔💕</p>
+      <p>Tap around, feel the love, and know that somewhere right now Sanjay is smiling just thinking about you. 🌧️</p>
+    </div>
+
+    <!-- DATE ASK ON HOME -->
+    <div class="date-ask-home" id="dateAskSection">
+      <h2>🌧️ Prisha, will you go on a date with me? 💐</h2>
+      <p>Just the two of us, some rain, cozy café, and good conversation ☕<br>I've been saving this question for the right moment — and this is it. 🥺</p>
+      <div class="date-btns" id="dateBtns">
+        <button id="yesBtn" onclick="sayYes()">💕 Yes, I'd love to!</button>
+        <button id="noBtn"
+          onmouseenter="dodgeNo(event)"
+          onmousemove="dodgeNo(event)"
+          onclick="dodgeNo(event); return false;"
+          ontouchstart="dodgeNoTouch(event)">Hmm, No</button>
+      </div>
+      <div class="yes-celebrate" id="yesCelebrate">
+        <p>🎉 Yay!! Sanjay is doing a happy dance right now! 🕺</p>
+        <span>Get ready for the best date ever — he already has everything planned! 🌧️☕✨</span>
+      </div>
+    </div>
+
+    <div class="grid3">
+      <div class="tile" onclick="go('kiss'); track('💋 Tapped Kiss tile on Home','kiss')">
+        <span class="t-icon">💋</span>
+        <span class="t-label">Tap to Kiss</span>
+        <span class="t-count" id="kissHomeLbl">0 kisses</span>
+      </div>
+      <div class="tile" onclick="go('hug'); track('🤗 Tapped Hug tile on Home','hug')">
+        <span class="t-icon">🤗</span>
+        <span class="t-label">Tap to Hug</span>
+        <span class="t-count" id="hugHomeLbl">0 hugs</span>
+      </div>
+      <div class="tile" onclick="go('letter'); track('💌 Opened Love Letter from Home','nav')">
+        <span class="t-icon">💌</span>
+        <span class="t-label">Love Letter</span>
+        <span class="t-count">read it →</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- KISS -->
+  <section class="page" id="kiss">
+    <div class="hero-emoji">💋</div>
+    <h1 class="title">A Kiss for <span class="accent">Prisha</span></h1>
+    <div class="card" style="text-align:center;">
+      <span class="badge">💋 Tap as many times as you want</span>
+      <p>Every tap is a real kiss from Sanjay, sent straight through the screen. 😘</p>
+      <div class="big-tap" onclick="incr('kiss')">
+        <span class="bt-icon">💋</span>
+        <span class="bt-lbl">Tap for a Kiss</span>
+      </div>
+      <div class="count-big" id="kissBig">0 kisses sent 💋</div>
+    </div>
+    <div class="card note-box">
+      <h3>✍️ Leave a secret note for Sanjay</h3>
+      <textarea id="kissNote" placeholder="What did this make you feel? 💕"></textarea>
+      <button class="save-note-btn" onclick="saveNote('Kiss Page',document.getElementById('kissNote'))">💾 Save note for Sanjay</button>
+      <p class="note-saved-msg" id="kissNoteSaved">✅ Note saved! Sanjay will see it 💗</p>
+    </div>
+  </section>
+
+  <!-- HUG -->
+  <section class="page" id="hug">
+    <div class="hero-emoji">🤗</div>
+    <h1 class="title">A Hug for <span class="accent">Prisha</span></h1>
+    <div class="card" style="text-align:center;">
+      <span class="badge">🤗 Warm and never-ending</span>
+      <p>Tight, warm, and exactly as long as you need. Sanjay is hugging you through the screen right now. 🫂</p>
+      <div class="big-tap" onclick="incr('hug')">
+        <span class="bt-icon">🤗</span>
+        <span class="bt-lbl">Tap for a Hug</span>
+      </div>
+      <div class="count-big" id="hugBig">0 hugs sent 🤗</div>
+    </div>
+    <div class="card note-box">
+      <h3>✍️ Leave a secret note for Sanjay</h3>
+      <textarea id="hugNote" placeholder="What would you say while hugging him?... 💞"></textarea>
+      <button class="save-note-btn" onclick="saveNote('Hug Page',document.getElementById('hugNote'))">💾 Save note for Sanjay</button>
+      <p class="note-saved-msg" id="hugNoteSaved">✅ Note saved! Sanjay will see it 💗</p>
+    </div>
+  </section>
+
+  <!-- LETTER -->
+  <section class="page" id="letter">
+    <div class="hero-emoji">💌</div>
+    <h1 class="title">My Letter to <span class="accent">Prisha</span></h1>
+    <div class="card">
+      <span class="badge">💗 From Sanjay, with love</span>
+      <p>My Prisha,</p>
+      <p>I don't think words will ever be enough, but I'll keep trying — because you deserve every single one of them.</p>
+      <p>I love how you laugh before you finish your own sentence. I love how your eyes light up when something makes you genuinely happy. I love that even on your hardest days, you still make everything around you a little brighter.</p>
+      <p>If I could pick one feeling to keep with me forever, it would be the way I feel every time I think about you — warm, lucky, and completely sure. 🌧️💞</p>
+      <p style="text-align:right;font-family:'Dancing Script',cursive;font-size:24px;color:var(--rose-deep);margin-top:8px;">— always yours, Sanjay</p>
+    </div>
+    <div class="card note-box">
+      <h3>✍️ Write Sanjay back</h3>
+      <textarea id="letterNote" placeholder="What did this letter make you feel?... 🌸"></textarea>
+      <button class="save-note-btn" onclick="saveNote('Love Letter Reply',document.getElementById('letterNote'))">💾 Save reply for Sanjay</button>
+      <p class="note-saved-msg" id="letterNoteSaved">✅ Reply saved! Sanjay will see it 💗</p>
+    </div>
+  </section>
+
+  <!-- PROMISES -->
+  <section class="page" id="promises">
+    <div class="hero-emoji">🌸</div>
+    <h1 class="title">Sanjay's <span class="accent">Promises</span></h1>
+    <div class="card">
+      <ul class="promise-list">
+        <li><span class="num">💗</span>I'll always tell you the truth, even when it's not easy.</li>
+        <li><span class="num">💗</span>I'll dance with you in the kitchen, badly, and without music.</li>
+        <li><span class="num">💗</span>I'll listen to every rant about your day without checking my phone.</li>
+        <li><span class="num">💗</span>I'll bring you your favourite snacks when you're feeling low — no questions asked.</li>
+        <li><span class="num">💗</span>I'll never let an argument outlast the day it started.</li>
+        <li><span class="num">💗</span>I'll hold your hand through every storm, even the ones I accidentally caused. 🌧️</li>
+        <li><span class="num">💗</span>I'll keep choosing you, every single morning.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- GIFTS -->
+  <section class="page" id="gifts">
+    <div class="hero-emoji">🎁</div>
+    <h1 class="title">Little Gifts for <span class="accent">Prisha</span></h1>
+    <div class="gift-grid">
+      <div class="gift"><span class="g-icon">🌷</span><h3>A Bouquet</h3><p>Because you deserve flowers, not just on special days.</p></div>
+      <div class="gift"><span class="g-icon">🍫</span><h3>Favourite Chocolate</h3><p>The one you pretend to share but never really do.</p></div>
+      <div class="gift"><span class="g-icon">🎧</span><h3>Rainy Day Playlist</h3><p>Songs picked for your mood on soft, cloudy afternoons ☔</p></div>
+      <div class="gift"><span class="g-icon">📖</span><h3>Handwritten Letter</h3><p>One more — because you deserve words that last forever.</p></div>
+      <div class="gift"><span class="g-icon">🌙</span><h3>Late Night Calls</h3><p>Talking till 2 AM about nothing and everything at the same time.</p></div>
+      <div class="gift"><span class="g-icon">☕</span><h3>Coffee Dates</h3><p>Sitting across from you is the best part of any café.</p></div>
+    </div>
+  </section>
+
+  <!-- MEMORIES -->
+  <section class="page" id="memories">
+    <div class="hero-emoji">✨</div>
+    <h1 class="title">Our <span class="accent">Memories</span></h1>
+    <div class="card">
+      <div class="memory"><span class="m-icon">☔</span><div><strong>The rainy evening walk</strong><span>We got completely soaked and didn't care one bit.</span></div></div>
+      <div class="memory"><span class="m-icon">🍜</span><div><strong>That late-night food run</strong><span>Talking for hours over food that went completely cold.</span></div></div>
+      <div class="memory"><span class="m-icon">🎬</span><div><strong>Movie night, half-watched</strong><span>We talked through the whole thing anyway — and it was perfect.</span></div></div>
+      <div class="memory"><span class="m-icon">🌙</span><div><strong>That 2 AM conversation</strong><span>The one where we said things we'd never said out loud before.</span></div></div>
+      <div class="memory"><span class="m-icon">🐾</span><div><strong>The stray cat we fed</strong><span>You named it before we even finished feeding it.</span></div></div>
+    </div>
+  </section>
+
+</main>
+
+<footer>made with 💗 by Sanjay, only for Prisha 🌧️</footer>
+<button id="musicBtn" onclick="toggleMusic()">🎵</button>
+
+</div><!-- end #mainSite -->
+
+
+<!-- ============================================================
+     ADMIN DASHBOARD
+============================================================ -->
+<div id="adminDash">
+
+  <div class="adm-header">
+    <div class="adm-title">
+      🎛️ Sanjay's Dashboard
+      <span>— Prisha's Activity</span>
+    </div>
+    <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
+      <div class="last-seen"><div class="live-dot"></div><span id="lastSeenLbl">Loading...</span></div>
+      <div class="adm-badge" id="totalEventsLbl">0 events</div>
+    </div>
+    <div class="adm-actions">
+      <button class="adm-btn refresh" onclick="renderAdmin()">🔄 Refresh</button>
+      <button class="adm-btn clear" onclick="clearData()">🗑️ Clear All</button>
+      <button class="adm-btn back" onclick="goBack()">← Back to Site</button>
+    </div>
+  </div>
+
+  <div class="adm-body">
+
+    <!-- Date Banner -->
+    <div class="date-banner unanswered" id="dateBanner">
+      <span class="db-icon">💐</span>
+      <div class="db-text">
+        <strong id="dateBannerTitle">Date question — awaiting answer</strong>
+        <span id="dateBannerSub">Prisha hasn't answered yet...</span>
+      </div>
+    </div>
+
+    <!-- Stats row -->
+    <div class="stats-grid" id="statsGrid">
+      <div class="stat-card"><div class="s-icon">💋</div><div class="s-val" id="st-kisses">0</div><div class="s-label">Total Kisses</div></div>
+      <div class="stat-card"><div class="s-icon">🤗</div><div class="s-val" id="st-hugs">0</div><div class="s-label">Total Hugs</div></div>
+      <div class="stat-card"><div class="s-icon">🙅</div><div class="s-val no-val" id="st-noAttempts">0</div><div class="s-label">No Dodge Attempts</div></div>
+      <div class="stat-card"><div class="s-icon">📄</div><div class="s-val" id="st-pages">0</div><div class="s-label">Pages Visited</div></div>
+      <div class="stat-card"><div class="s-icon">✍️</div><div class="s-val" id="st-notes">0</div><div class="s-label">Notes Left</div></div>
+      <div class="stat-card"><div class="s-icon">⏱️</div><div class="s-val" id="st-time">0m</div><div class="s-label">Time on Site</div></div>
+    </div>
+
+    <div class="adm-panels">
+
+      <!-- Activity Timeline -->
+      <div class="adm-panel wide">
+        <div class="panel-head">
+          <h3>📊 Full Activity Timeline</h3>
+          <span class="cnt" id="timelineCnt">0</span>
+        </div>
+        <div class="panel-body" id="timelineBody">
+          <p class="empty-msg">No activity recorded yet. Share the site with Prisha! 💕</p>
+        </div>
+      </div>
+
+      <!-- Page Visits -->
+      <div class="adm-panel">
+        <div class="panel-head"><h3>📄 Page Visits Breakdown</h3></div>
+        <div class="panel-body" id="pageVisitsBody">
+          <p class="empty-msg">No page visits yet.</p>
+        </div>
+      </div>
+
+      <!-- Notes from Prisha -->
+      <div class="adm-panel">
+        <div class="panel-head">
+          <h3>✍️ Notes from Prisha</h3>
+          <span class="cnt" id="notesCnt">0</span>
+        </div>
+        <div class="panel-body" id="notesBody">
+          <p class="empty-msg">Prisha hasn't left any notes yet. 🥺</p>
+        </div>
+      </div>
+
+      <!-- Session Info -->
+      <div class="adm-panel wide">
+        <div class="panel-head"><h3>🔍 Session Info</h3></div>
+        <div class="panel-body" id="sessionBody">
+          <p class="empty-msg">No session data yet.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div><!-- end #adminDash -->
+
+
+<script>
+/* ============================================================
+   DATA LAYER — localStorage
+============================================================ */
+const STORE_KEY = 'sp_data_v3';
+let D = loadData();
+
+function defaultData(){
+  return {
+    sessionStart: null,
+    lastSeen: null,
+    totalSessions: 0,
+    kisses: 0,
+    hugs: 0,
+    dateAnswer: null,      // 'yes' | null
+    dateAnswerTime: null,
+    noAttempts: 0,
+    pageVisits: {},
+    notes: [],             // {context, text, time}
+    timeline: []           // {time, label, dot}
+  };
+}
+
+function loadData(){
+  try{
+    const d = localStorage.getItem(STORE_KEY);
+    return d ? JSON.parse(d) : defaultData();
+  }catch(e){ return defaultData(); }
+}
+
+function save(){
+  D.lastSeen = new Date().toISOString();
+  try{ localStorage.setItem(STORE_KEY, JSON.stringify(D)); }catch(e){}
+}
+
+/* ============================================================
+   TRACKING
+============================================================ */
+function track(label, dotClass='nav'){
+  D.timeline.push({ time: now(), label, dot: dotClass });
+  D.lastSeen = new Date().toISOString();
+  save();
+}
+
+function now(){
+  return new Date().toLocaleTimeString('en-IN',{hour:'2-digit',minute:'2-digit',second:'2-digit'});
+}
+
+function nowFull(){
+  return new Date().toLocaleString('en-IN',{
+    day:'2-digit',month:'short',year:'numeric',
+    hour:'2-digit',minute:'2-digit',second:'2-digit'
+  });
+}
+
+/* ============================================================
+   NAVIGATION
+============================================================ */
+const pages = document.querySelectorAll('.page');
+const navBtns = document.querySelectorAll('.navbtn');
+
+function go(id){
+  pages.forEach(p => p.classList.toggle('active', p.id === id));
+  navBtns.forEach(b => b.classList.toggle('active', b.dataset.page === id));
+  window.scrollTo({top:0,behavior:'smooth'});
+  D.pageVisits[id] = (D.pageVisits[id]||0) + 1;
+  track(`📄 Visited "${id}" page (${D.pageVisits[id]}× total)`, 'nav');
+}
+
+navBtns.forEach(b => b.addEventListener('click', () => go(b.dataset.page)));
+
+/* ============================================================
+   COUNTERS
+============================================================ */
+function incr(type){
+  D[type+'s']++;
+  if(type==='kiss'){
+    track(`💋 Kiss tapped — total: ${D.kisses}`, 'kiss');
+    document.getElementById('kissBig').textContent = `${D.kisses} kisses sent 💋`;
+    document.getElementById('kissHomeLbl').textContent = `${D.kisses} kisses`;
+  } else {
+    track(`🤗 Hug tapped — total: ${D.hugs}`, 'hug');
+    document.getElementById('hugBig').textContent = `${D.hugs} hugs sent 🤗`;
+    document.getElementById('hugHomeLbl').textContent = `${D.hugs} hugs`;
+  }
+  save();
+  heartBurst(type);
+}
+
+function heartBurst(type){
+  const emojis = type==='kiss' ? ['💋','💗','😘','💕'] : ['🤗','💞','🫂','💓'];
+  for(let i=0;i<7;i++){
+    const s = document.createElement('div');
+    s.textContent = emojis[Math.floor(Math.random()*emojis.length)];
+    s.style.cssText = `position:fixed;font-size:${18+Math.random()*20}px;
+      left:${25+Math.random()*50}vw;top:${35+Math.random()*25}vh;
+      pointer-events:none;z-index:600;animation:floatUp .95s ease forwards;`;
+    document.body.appendChild(s);
+    setTimeout(()=>s.remove(),1000);
+  }
+}
+
+/* ============================================================
+   NOTES
+============================================================ */
+function saveNote(context, textarea){
+  const text = textarea.value.trim();
+  if(!text){ alert('Please write something first! 💕'); return; }
+  D.notes.push({ context, text, time: nowFull() });
+  track(`✍️ Saved a note on "${context}"`, 'note');
+  save();
+  textarea.value = '';
+  const savedMsg = document.getElementById(
+    context==='Kiss Page'?'kissNoteSaved':context==='Hug Page'?'hugNoteSaved':'letterNoteSaved'
+  );
+  if(savedMsg){ savedMsg.style.display='block'; setTimeout(()=>savedMsg.style.display='none',3000); }
+}
+
+/* ============================================================
+   DATE — No Button Dodges
+============================================================ */
+const noBtn = document.getElementById('noBtn');
+let noRoaming = false;
+
+function dodgeNo(e){
+  D.noAttempts++;
+  track(`🙅 Tried to click "No" (attempt #${D.noAttempts})`, 'date-no');
+  save();
+  noBtn.classList.add('roaming');
+  noRoaming = true;
+  placeNoBtnAway(e);
+}
+
+function dodgeNoTouch(e){
+  e.preventDefault(); // stop click from firing
+  dodgeNo(null);
+}
+
+function placeNoBtnAway(e){
+  const margin = 90;
+  const maxX = window.innerWidth - margin*2;
+  const maxY = window.innerHeight - margin*2;
+  let x, y, tries = 0;
+  do {
+    x = margin + Math.random()*maxX;
+    y = margin + Math.random()*maxY;
+    tries++;
+  } while(e && tries < 10 && Math.abs(e.clientX - x) < 150 && Math.abs(e.clientY - y) < 100);
+  noBtn.style.left = x+'px';
+  noBtn.style.top = y+'px';
+}
+
+function sayYes(){
+  D.dateAnswer = 'yes';
+  D.dateAnswerTime = nowFull();
+  track('💕 SHE SAID YES TO THE DATE!! 🎉🎉🎉', 'date-yes');
+  save();
+  document.getElementById('yesCelebrate').classList.add('show');
+  document.getElementById('yesBtn').style.display = 'none';
+  noBtn.style.display = 'none';
+  document.getElementById('dateBtns').style.minHeight = '0';
+  launchConfetti();
+}
+
+/* ============================================================
+   CONFETTI
+============================================================ */
+const canvas = document.getElementById('confetti');
+const ctx2 = canvas.getContext('2d');
+function sizeCanvas(){ canvas.width=window.innerWidth; canvas.height=window.innerHeight; }
+window.addEventListener('resize', sizeCanvas); sizeCanvas();
+let particles = [];
+
+function launchConfetti(){
+  particles = [];
+  const colors = ['#d94f70','#b07fd4','#e2a24c','#ff8fa3','#ffd6e0','#a97fc7'];
+  for(let i=0;i<160;i++){
+    particles.push({
+      x: canvas.width/2, y: canvas.height*.38,
+      vx: (Math.random()-.5)*18, vy: (Math.random()-1.4)*16,
+      size: 5+Math.random()*8,
+      color: colors[Math.floor(Math.random()*colors.length)],
+      life: 130+Math.random()*50
+    });
+  }
+  requestAnimationFrame(animConf);
+}
+
+function animConf(){
+  ctx2.clearRect(0,0,canvas.width,canvas.height);
+  particles.forEach(p=>{
+    p.x+=p.vx; p.y+=p.vy; p.vy+=.3; p.life--;
+    ctx2.globalAlpha = Math.max(p.life/170, 0);
+    ctx2.fillStyle = p.color;
+    ctx2.beginPath();
+    ctx2.arc(p.x,p.y,p.size/2,0,Math.PI*2);
+    ctx2.fill();
+  });
+  ctx2.globalAlpha=1;
+  particles = particles.filter(p=>p.life>0);
+  if(particles.length>0) requestAnimationFrame(animConf);
+  else ctx2.clearRect(0,0,canvas.width,canvas.height);
+}
+
+/* ============================================================
+   RAIN
+============================================================ */
+const rainLayer = document.getElementById('rain');
+const rainEmojis = ['🌧️','💧','☔','💕','💗','🌸','💞','❣️','💓','🌂'];
+
+function spawnDrop(){
+  const d = document.createElement('div');
+  d.className = 'drop';
+  d.textContent = rainEmojis[Math.floor(Math.random()*rainEmojis.length)];
+  const dur = 5 + Math.random()*7;
+  d.style.left = Math.random()*100+'vw';
+  d.style.fontSize = (11+Math.random()*16)+'px';
+  d.style.setProperty('--drift', (Math.random()*100-50)+'px');
+  d.style.animationDuration = dur+'s';
+  rainLayer.appendChild(d);
+  setTimeout(()=>d.remove(), (dur*1000)+400);
+}
+setInterval(spawnDrop, 280);
+for(let i=0;i<14;i++) setTimeout(spawnDrop, i*130);
+
+/* ============================================================
+   MUSIC
+============================================================ */
+let audioCtx, isPlaying=false, loopTimer;
+const musicBtn = document.getElementById('musicBtn');
+const melody = [523,659,784,659,698,587,523,587,659,784,880,784,659,523];
+let noteIdx = 0;
+
+function toggleMusic(){
+  if(!audioCtx) audioCtx = new(window.AudioContext||window.webkitAudioContext)();
+  isPlaying ? stopMusic() : playMusic();
+}
+function playMusic(){
+  isPlaying=true; musicBtn.classList.add('playing'); musicBtn.textContent='⏸';
+  function playNote(){
+    if(!isPlaying) return;
+    const osc=audioCtx.createOscillator();
+    const gain=audioCtx.createGain();
+    osc.type='sine';
+    osc.frequency.value=melody[noteIdx%melody.length];
+    gain.gain.setValueAtTime(0,audioCtx.currentTime);
+    gain.gain.linearRampToValueAtTime(0.07,audioCtx.currentTime+0.08);
+    gain.gain.linearRampToValueAtTime(0,audioCtx.currentTime+0.75);
+    osc.connect(gain).connect(audioCtx.destination);
+    osc.start(); osc.stop(audioCtx.currentTime+0.8);
+    noteIdx++;
+    loopTimer=setTimeout(playNote,480);
+  }
+  playNote();
+}
+function stopMusic(){
+  isPlaying=false; clearTimeout(loopTimer);
+  musicBtn.classList.remove('playing'); musicBtn.textContent='🎵';
+}
+
+/* ============================================================
+   URL ROUTING — main vs admin
+============================================================ */
+function checkRoute(){
+  if(window.location.hash === '#sanjay-admin'){
+    document.getElementById('mainSite').style.display = 'none';
+    document.getElementById('adminDash').style.display = 'block';
+    renderAdmin();
+  } else {
+    document.getElementById('mainSite').style.display = 'block';
+    document.getElementById('adminDash').style.display = 'none';
+  }
+}
+
+function goBack(){
+  window.location.hash = '';
+}
+
+window.addEventListener('hashchange', checkRoute);
+
+/* ============================================================
+   ADMIN RENDER
+============================================================ */
+function renderAdmin(){
+  D = loadData(); // always fresh from storage
+
+  // ── Stats ──
+  document.getElementById('st-kisses').textContent = D.kisses;
+  document.getElementById('st-hugs').textContent = D.hugs;
+  document.getElementById('st-noAttempts').textContent = D.noAttempts;
+  document.getElementById('st-pages').textContent = Object.keys(D.pageVisits).length;
+  document.getElementById('st-notes').textContent = D.notes.length;
+
+  // Time on site
+  if(D.sessionStart){
+    const mins = Math.round((new Date(D.lastSeen||D.sessionStart) - new Date(D.sessionStart)) / 60000);
+    document.getElementById('st-time').textContent = mins+'m';
+  }
+
+  // Last seen
+  document.getElementById('lastSeenLbl').textContent = D.lastSeen
+    ? 'Last seen: '+new Date(D.lastSeen).toLocaleTimeString('en-IN',{hour:'2-digit',minute:'2-digit'})
+    : 'Not visited yet';
+
+  // Total events
+  document.getElementById('totalEventsLbl').textContent = D.timeline.length+' events';
+
+  // ── Date Banner ──
+  const banner = document.getElementById('dateBanner');
+  if(D.dateAnswer === 'yes'){
+    banner.className = 'date-banner answered-yes';
+    document.getElementById('dateBannerTitle').textContent = '💕 SHE SAID YES TO THE DATE!!';
+    document.getElementById('dateBannerSub').textContent = `Answered YES at ${D.dateAnswerTime||'unknown time'} 🎉`;
+  } else {
+    banner.className = 'date-banner unanswered';
+    document.getElementById('dateBannerTitle').textContent = 'Date question — not yet answered';
+    document.getElementById('dateBannerSub').textContent = `No dodge attempts so far: ${D.noAttempts}`;
+  }
+
+  // ── Timeline ──
+  const tBody = document.getElementById('timelineBody');
+  document.getElementById('timelineCnt').textContent = D.timeline.length;
+  if(D.timeline.length === 0){
+    tBody.innerHTML = '<p class="empty-msg">No activity recorded yet. Share the site with Prisha! 💕</p>';
+  } else {
+    tBody.innerHTML = [...D.timeline].reverse().map(e => `
+      <div class="tl-item">
+        <div class="tl-dot ${e.dot||'nav'}"></div>
+        <div class="tl-time">${e.time}</div>
+        <div class="tl-label">${e.label}</div>
+      </div>`).join('');
+  }
+
+  // ── Page Visits ──
+  const pvBody = document.getElementById('pageVisitsBody');
+  const pv = D.pageVisits;
+  const pvEntries = Object.entries(pv);
+  if(pvEntries.length === 0){
+    pvBody.innerHTML = '<p class="empty-msg">No page visits yet.</p>';
+  } else {
+    const maxV = Math.max(...Object.values(pv));
+    pvBody.innerHTML = pvEntries
+      .sort((a,b)=>b[1]-a[1])
+      .map(([page,cnt])=>`
+        <div class="pv-row">
+          <div class="pv-name">${page}</div>
+          <div class="pv-bar-wrap"><div class="pv-bar" style="width:${Math.round(cnt/maxV*100)}%"></div></div>
+          <div class="pv-count">${cnt}×</div>
+        </div>`).join('');
+  }
+
+  // ── Notes ──
+  const nBody = document.getElementById('notesBody');
+  document.getElementById('notesCnt').textContent = D.notes.length;
+  if(D.notes.length === 0){
+    nBody.innerHTML = '<p class="empty-msg">Prisha hasn\'t saved any notes yet. 🥺</p>';
+  } else {
+    nBody.innerHTML = [...D.notes].reverse().map(n => `
+      <div class="note-item">
+        <div class="n-context">${n.context}</div>
+        <div class="n-text">"${n.text}"</div>
+        <div class="n-time">${n.time}</div>
+      </div>`).join('');
+  }
+
+  // ── Session Info ──
+  const sBody = document.getElementById('sessionBody');
+  sBody.innerHTML = `
+    <div class="sess-row"><span class="sk">First Opened</span><span class="sv">${D.sessionStart ? new Date(D.sessionStart).toLocaleString('en-IN') : 'Not yet'}</span></div>
+    <div class="sess-row"><span class="sk">Last Active</span><span class="sv">${D.lastSeen ? new Date(D.lastSeen).toLocaleString('en-IN') : 'Not yet'}</span></div>
+    <div class="sess-row"><span class="sk">Total Kisses</span><span class="sv">💋 ${D.kisses}</span></div>
+    <div class="sess-row"><span class="sk">Total Hugs</span><span class="sv">🤗 ${D.hugs}</span></div>
+    <div class="sess-row"><span class="sk">Date Answer</span><span class="sv" style="color:${D.dateAnswer==='yes'?'#25d366':'#ff6b6b'}">${D.dateAnswer ? '💕 YES! at '+D.dateAnswerTime : '⏳ Not yet'}</span></div>
+    <div class="sess-row"><span class="sk">"No" Dodge Attempts</span><span class="sv">${D.noAttempts}</span></div>
+    <div class="sess-row"><span class="sk">Notes Left</span><span class="sv">${D.notes.length}</span></div>
+    <div class="sess-row"><span class="sk">Total Events Logged</span><span class="sv">${D.timeline.length}</span></div>
+    <div class="sess-row"><span class="sk">Pages Explored</span><span class="sv">${Object.entries(D.pageVisits).map(([k,v])=>k+'('+v+'×)').join(', ')||'None'}</span></div>
+  `;
+}
+
+function clearData(){
+  if(!confirm('Clear ALL of Prisha\'s activity data? This cannot be undone.')) return;
+  D = defaultData();
+  save();
+  renderAdmin();
+}
+
+/* ============================================================
+   INIT
+============================================================ */
+window.addEventListener('load', () => {
+  D = loadData();
+
+  // Session start
+  if(!D.sessionStart){
+    D.sessionStart = new Date().toISOString();
+    D.totalSessions = (D.totalSessions||0) + 1;
+  }
+
+  track('🟢 Prisha opened the website', 'sys');
+
+  // Sync counters to UI
+  if(D.kisses > 0){
+    document.getElementById('kissBig').textContent = `${D.kisses} kisses sent 💋`;
+    document.getElementById('kissHomeLbl').textContent = `${D.kisses} kisses`;
+  }
+  if(D.hugs > 0){
+    document.getElementById('hugBig').textContent = `${D.hugs} hugs sent 🤗`;
+    document.getElementById('hugHomeLbl').textContent = `${D.hugs} hugs`;
+  }
+
+  // Date already answered?
+  if(D.dateAnswer === 'yes'){
+    document.getElementById('yesCelebrate').classList.add('show');
+    document.getElementById('yesBtn').style.display = 'none';
+    document.getElementById('noBtn').style.display = 'none';
+  }
+
+  checkRoute();
+});
+
+// Track when tab is hidden
+document.addEventListener('visibilitychange', () => {
+  if(document.hidden) track('🔴 Prisha minimised or left the site', 'sys');
+  else track('🟡 Prisha came back to the site', 'sys');
+});
+</script>
+</body>
+</html>
+HTMLEOF
+echo "Done"
+Output
+
+Done
