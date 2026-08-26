@@ -1,0 +1,1304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sanjay 💗 Prisha</title>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Quicksand:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ================================================================
+   GLOBAL RESET
+================================================================ */
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+
+/* ================================================================
+   MAIN SITE — romantic pink/blush theme
+================================================================ */
+:root{
+  --rose:#d94f70; --rose-deep:#a83458; --lavender:#b07fd4;
+  --gold:#e2a24c; --ink:#4a2438; --shadow:rgba(168,52,88,.18);
+}
+
+body{
+  font-family:'Quicksand',sans-serif;
+  background:radial-gradient(circle at 20% 10%,#ffe3ea 0%,#ffd6e0 40%,#f7c6d9 75%,#eab8d0 100%);
+  min-height:100vh; overflow-x:hidden; color:var(--ink);
+}
+
+/* RAIN */
+#rain{position:fixed;inset:0;pointer-events:none;z-index:1;overflow:hidden;}
+.drop{position:absolute;top:-10%;opacity:.8;animation:fall linear infinite;
+  filter:drop-shadow(0 0 5px rgba(217,79,112,.2));}
+@keyframes fall{
+  0%{transform:translateY(-10vh) translateX(0) rotate(0deg);opacity:0;}
+  10%{opacity:.9;}
+  100%{transform:translateY(115vh) translateX(var(--drift,20px)) rotate(30deg);opacity:.1;}
+}
+@keyframes floatUp{0%{opacity:1;transform:translateY(0);}100%{opacity:0;transform:translateY(-90px);}}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:200;
+  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;
+  padding:12px 22px;background:rgba(255,255,255,.55);backdrop-filter:blur(16px);
+  border-bottom:1px solid rgba(217,79,112,.15);}
+.brand{font-family:'Dancing Script',cursive;font-size:26px;color:var(--rose-deep);font-weight:700;white-space:nowrap;}
+.navlinks{display:flex;gap:5px;flex-wrap:wrap;}
+.navlinks button{border:none;background:rgba(255,255,255,.65);color:var(--rose-deep);
+  padding:8px 13px;border-radius:999px;font-family:'Quicksand',sans-serif;
+  font-weight:700;font-size:12.5px;cursor:pointer;transition:all .22s ease;
+  box-shadow:0 1px 4px rgba(168,52,88,.1);}
+.navlinks button:hover{background:linear-gradient(135deg,var(--rose),var(--lavender));color:#fff;transform:translateY(-2px);}
+.navlinks button.active{background:linear-gradient(135deg,var(--rose),var(--rose-deep));color:#fff;}
+
+/* PAGES */
+main{position:relative;z-index:5;max-width:940px;margin:0 auto;padding:44px 22px 130px;}
+.page{display:none;animation:riseIn .5s ease;}
+.page.active{display:block;}
+@keyframes riseIn{from{opacity:0;transform:translateY(18px);}to{opacity:1;transform:translateY(0);}}
+
+.hero-emoji{font-size:76px;text-align:center;animation:bob 3.2s ease-in-out infinite;
+  filter:drop-shadow(0 8px 14px rgba(168,52,88,.25));}
+@keyframes bob{0%,100%{transform:translateY(0) rotate(-2deg);}50%{transform:translateY(-14px) rotate(2deg);}}
+
+h1.title{font-family:'Dancing Script',cursive;font-size:52px;text-align:center;
+  color:var(--rose-deep);margin-top:6px;line-height:1.1;}
+h1.title .accent{color:var(--lavender);}
+.subtitle{text-align:center;color:var(--rose);font-weight:600;margin-top:8px;font-size:15.5px;}
+
+.card{background:rgba(255,255,255,.88);border-radius:26px;padding:30px 34px;
+  margin-top:28px;box-shadow:0 18px 40px var(--shadow);border:1px solid rgba(255,255,255,.7);}
+.badge{display:inline-flex;align-items:center;gap:6px;
+  background:linear-gradient(135deg,var(--rose),var(--lavender));
+  color:#fff;font-size:12.5px;font-weight:700;padding:6px 14px;border-radius:999px;margin-bottom:14px;}
+.card p{font-size:16.5px;line-height:1.85;margin-bottom:12px;color:#5a3247;}
+.card p:last-child{margin-bottom:0;}
+
+/* transparency notice */
+.transparency-note{
+  display:flex;align-items:center;gap:10px;background:rgba(255,255,255,.65);
+  border:1px dashed rgba(168,52,88,.35);border-radius:16px;padding:12px 16px;
+  margin-top:18px;font-size:13px;color:var(--rose-deep);font-weight:600;line-height:1.5;
+}
+.transparency-note span.ic{font-size:20px;flex-shrink:0;}
+
+/* DATE ASK on Home */
+.date-ask-home{
+  background:rgba(255,255,255,.88);border-radius:26px;padding:32px 34px;
+  margin-top:28px;box-shadow:0 18px 40px var(--shadow);border:1px solid rgba(255,255,255,.7);
+  text-align:center;
+}
+.date-ask-home h2{font-family:'Dancing Script',cursive;font-size:38px;color:var(--rose-deep);margin-bottom:10px;}
+.date-ask-home p{font-size:15.5px;color:#5a3247;margin-bottom:24px;line-height:1.7;}
+.date-btns{display:flex;gap:20px;justify-content:center;align-items:center;flex-wrap:wrap;}
+#yesBtn{padding:15px 38px;border-radius:999px;border:none;
+  background:linear-gradient(135deg,var(--rose),var(--rose-deep));color:#fff;
+  font-family:'Quicksand',sans-serif;font-weight:700;font-size:17px;cursor:pointer;
+  box-shadow:0 10px 22px rgba(168,52,88,.25);transition:transform .2s, box-shadow .2s;}
+#yesBtn:hover{transform:scale(1.06);box-shadow:0 14px 28px rgba(168,52,88,.35);}
+#noBtn{padding:15px 38px;border-radius:999px;border:2px solid var(--rose);
+  background:#fff;color:var(--rose-deep);font-family:'Quicksand',sans-serif;
+  font-weight:700;font-size:17px;cursor:pointer;transition:transform .15s;
+  box-shadow:0 6px 16px rgba(168,52,88,.1);}
+#noBtn:hover{transform:translateY(-2px);}
+#noBtn{
+  position:relative;
+  z-index:20;
+  will-change:transform,left,top;
+  transition:transform .12s ease,left .12s ease,top .12s ease;
+}
+#noBtn.dodging{
+  position:fixed;
+  transition:none;
+}
+
+.no-response{display:none;margin-top:18px;font-size:14.5px;color:#8a5a72;font-style:italic;}
+.no-response.show{display:block;}
+
+.yes-celebrate{display:none;margin-top:22px;animation:riseIn .5s ease;}
+.yes-celebrate.show{display:block;}
+.yes-celebrate p{font-family:'Dancing Script',cursive;font-size:32px;color:var(--rose-deep);}
+.yes-celebrate span{font-size:15px;color:#8a5a72;display:block;margin-top:6px;font-family:'Quicksand',sans-serif;}
+
+/* DATE PICKER STEP */
+.plan-step{display:none;margin-top:26px;animation:riseIn .4s ease;text-align:left;}
+.plan-step.show{display:block;}
+.plan-step h3{font-family:'Dancing Script',cursive;font-size:26px;color:var(--rose-deep);margin-bottom:12px;text-align:center;}
+.date-input-row{display:flex;flex-direction:column;align-items:center;gap:14px;}
+.date-input-row input[type="date"]{
+  padding:12px 16px;border-radius:14px;border:1.5px solid rgba(217,79,112,.3);
+  font-family:'Quicksand',sans-serif;font-size:16px;color:var(--ink);
+  background:rgba(255,255,255,.9);outline:none;
+}
+.date-input-row input[type="date"]:focus{border-color:var(--rose);}
+.plan-next-btn{padding:12px 30px;border-radius:999px;border:none;
+  background:linear-gradient(135deg,var(--rose),var(--lavender));color:#fff;
+  font-family:'Quicksand',sans-serif;font-weight:700;font-size:15px;cursor:pointer;
+  box-shadow:0 8px 20px var(--shadow);transition:transform .2s;}
+.plan-next-btn:hover{transform:translateY(-2px);}
+.plan-next-btn:disabled{opacity:.5;cursor:not-allowed;transform:none;}
+
+/* RESTAURANT PICKER */
+.resto-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:4px;}
+@media(max-width:560px){.resto-grid{grid-template-columns:1fr;}}
+.resto-card{background:linear-gradient(160deg,#fff,#fff0f5);border:2px solid rgba(217,79,112,.15);
+  border-radius:18px;padding:18px;text-align:center;cursor:pointer;transition:all .2s ease;}
+.resto-card:hover{transform:translateY(-4px);border-color:var(--rose);box-shadow:0 12px 24px var(--shadow);}
+.resto-card.picked{border-color:var(--rose-deep);background:linear-gradient(160deg,#ffe3ea,#ffd0dd);}
+.resto-card .r-icon{font-size:30px;}
+.resto-card h4{color:var(--rose-deep);font-size:14.5px;margin:8px 0 3px;}
+.resto-card p{font-size:12px;color:#8a5a72;margin:0;}
+
+/* CONFIRMATION */
+.plan-confirm{text-align:center;}
+.plan-confirm .pc-summary{font-family:'Dancing Script',cursive;font-size:28px;color:var(--rose-deep);margin-bottom:6px;}
+.plan-confirm .pc-sub{font-size:14px;color:#8a5a72;}
+
+/* GRID */
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:28px;}
+@media(max-width:640px){.grid3{grid-template-columns:1fr;}}
+.tile{background:rgba(255,255,255,.88);border:1.5px solid rgba(217,79,112,.15);
+  border-radius:20px;padding:22px 14px;text-align:center;cursor:pointer;
+  transition:all .25s ease;box-shadow:0 8px 20px rgba(168,52,88,.08);}
+.tile:hover{transform:translateY(-6px);box-shadow:0 16px 30px var(--shadow);border-color:var(--rose);}
+.tile .t-icon{font-size:30px;display:block;margin-bottom:9px;}
+.tile .t-label{font-weight:700;color:var(--rose-deep);font-size:14.5px;}
+.tile .t-count{font-size:12px;color:var(--lavender);margin-top:5px;font-weight:600;}
+
+/* BIG TAP */
+.big-tap{display:inline-flex;flex-direction:column;align-items:center;justify-content:center;
+  background:linear-gradient(160deg,#fff7f9,#ffe0ea);border:2px solid rgba(217,79,112,.2);
+  border-radius:24px;padding:34px 54px;cursor:pointer;
+  transition:all .25s ease;box-shadow:0 12px 28px rgba(168,52,88,.12);margin-top:10px;}
+.big-tap:hover{transform:scale(1.06);box-shadow:0 18px 34px var(--shadow);}
+.big-tap .bt-icon{font-size:52px;}
+.big-tap .bt-lbl{font-weight:700;font-size:16px;color:var(--rose-deep);margin-top:10px;}
+.count-big{font-size:22px;font-weight:700;color:var(--rose-deep);margin-top:16px;}
+
+/* NOTE BOX (no WA) */
+.note-box{margin-top:24px;}
+.note-box h3{color:var(--rose-deep);font-size:17px;font-weight:700;margin-bottom:9px;}
+.note-box textarea{width:100%;border:1.5px solid rgba(217,79,112,.25);border-radius:14px;
+  padding:13px 15px;font-family:'Quicksand',sans-serif;font-size:15px;
+  resize:vertical;min-height:85px;outline:none;background:rgba(255,255,255,.8);color:var(--ink);}
+.note-box textarea:focus{border-color:var(--rose);}
+.save-note-btn{display:inline-flex;align-items:center;gap:8px;margin-top:11px;
+  background:linear-gradient(135deg,var(--rose),var(--lavender));color:#fff;
+  border:none;padding:12px 24px;border-radius:999px;font-family:'Quicksand',sans-serif;
+  font-weight:700;font-size:14.5px;cursor:pointer;transition:all .22s ease;
+  box-shadow:0 8px 20px var(--shadow);}
+.save-note-btn:hover{transform:translateY(-2px);}
+.note-saved-msg{font-size:13px;color:#25a356;font-weight:700;margin-top:8px;display:none;}
+
+/* PROMISES */
+.promise-list{list-style:none;margin-top:6px;}
+.promise-list li{display:flex;gap:12px;align-items:flex-start;cursor:pointer;
+  padding:12px 10px;border-bottom:1px dashed rgba(217,79,112,.18);font-size:15.5px;color:#5a3247;line-height:1.65;
+  border-radius:12px;transition:background .2s ease;}
+.promise-list li:hover{background:rgba(217,79,112,.06);}
+.promise-list li.picked{background:rgba(217,79,112,.1);}
+.promise-list li:last-child{border-bottom:none;}
+.promise-list .num{font-weight:700;color:var(--gold);min-width:28px;font-size:17px;}
+.promise-hint{font-size:13px;color:var(--rose);font-weight:600;margin-bottom:10px;text-align:center;}
+.send-promises-btn{display:block;margin:18px auto 0;
+  background:linear-gradient(135deg,var(--rose),var(--lavender));color:#fff;
+  border:none;padding:12px 26px;border-radius:999px;font-family:'Quicksand',sans-serif;
+  font-weight:700;font-size:14.5px;cursor:pointer;transition:all .22s ease;
+  box-shadow:0 8px 20px var(--shadow);}
+.send-promises-btn:hover{transform:translateY(-2px);}
+.promise-sent-msg{font-size:13px;color:#25a356;font-weight:700;margin-top:10px;display:none;text-align:center;}
+
+/* GIFTS */
+.gift-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:8px;}
+@media(max-width:560px){.gift-grid{grid-template-columns:1fr;}}
+.gift{background:linear-gradient(160deg,#fff,#fff0f5);border-radius:18px;padding:20px;
+  border:1px solid rgba(217,79,112,.12);text-align:center;}
+.gift .g-icon{font-size:28px;}
+.gift h3{color:var(--rose-deep);margin:9px 0 4px;font-size:14.5px;}
+.gift p{font-size:13px;color:#8a5a72;margin-bottom:10px;}
+.gift input[type="text"],.gift textarea,.gift select,.gift input[type="time"]{
+  width:100%;border:1.5px solid rgba(217,79,112,.25);border-radius:10px;
+  padding:9px 11px;font-family:'Quicksand',sans-serif;font-size:13.5px;
+  outline:none;background:rgba(255,255,255,.85);color:var(--ink);margin-bottom:8px;}
+.gift textarea{resize:vertical;min-height:60px;}
+.gift input:focus,.gift textarea:focus,.gift select:focus{border-color:var(--rose);}
+.gift-send-btn{background:linear-gradient(135deg,var(--rose),var(--lavender));color:#fff;
+  border:none;padding:9px 18px;border-radius:999px;font-family:'Quicksand',sans-serif;
+  font-weight:700;font-size:12.5px;cursor:pointer;transition:transform .2s;}
+.gift-send-btn:hover{transform:translateY(-2px);}
+.gift-sent-msg{font-size:12px;color:#25a356;font-weight:700;margin-top:7px;display:none;}
+
+/* MEMORIES */
+.memory{background:rgba(255,255,255,.88);border-radius:16px;padding:17px;
+  margin-bottom:11px;display:flex;gap:14px;align-items:center;border:1px solid rgba(217,79,112,.1);}
+.memory .m-icon{font-size:27px;}
+.memory strong{color:var(--rose-deep);display:block;margin-bottom:2px;}
+.memory span{font-size:13px;color:#8a5a72;}
+
+/* CONFETTI */
+#confetti{position:fixed;inset:0;pointer-events:none;z-index:500;}
+
+/* MUSIC */
+#musicBtn{position:fixed;bottom:26px;right:26px;width:54px;height:54px;border-radius:50%;
+  border:none;background:linear-gradient(135deg,var(--lavender),var(--rose));color:#fff;
+  font-size:20px;cursor:pointer;z-index:400;box-shadow:0 10px 22px rgba(168,52,88,.3);
+  display:flex;align-items:center;justify-content:center;transition:transform .2s;}
+#musicBtn:hover{transform:scale(1.08);}
+#musicBtn.playing{animation:mpulse 1.4s ease-in-out infinite;}
+@keyframes mpulse{0%,100%{box-shadow:0 10px 22px rgba(168,52,88,.3);}50%{box-shadow:0 10px 34px rgba(217,79,112,.6);}}
+
+footer{text-align:center;padding:28px;color:var(--rose-deep);font-family:'Dancing Script',cursive;
+  font-size:20px;position:relative;z-index:5;}
+footer .foot-note{display:block;font-family:'Quicksand',sans-serif;font-size:12px;color:#8a5a72;font-weight:600;margin-top:6px;}
+
+/* ================================================================
+   ADMIN DASHBOARD — dark professional theme
+================================================================ */
+#adminDash{
+  display:none;
+  min-height:100vh;
+  background:#0d0d18;
+  font-family:'Inter',sans-serif;
+  color:#e8e8f0;
+}
+
+.adm-header{
+  background:linear-gradient(135deg,#1a1a2e,#16213e);
+  border-bottom:1px solid rgba(217,79,112,.25);
+  padding:20px 32px;
+  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;
+  position:sticky;top:0;z-index:100;
+}
+.adm-title{font-size:20px;font-weight:700;color:#fff;display:flex;align-items:center;gap:10px;}
+.adm-title span{font-size:13px;font-weight:400;color:#9a9ab8;margin-left:8px;}
+.adm-actions{display:flex;gap:10px;}
+.adm-btn{padding:9px 18px;border-radius:8px;border:none;font-family:'Inter',sans-serif;
+  font-weight:600;font-size:13px;cursor:pointer;transition:all .2s;}
+.adm-btn.refresh{background:rgba(255,255,255,.08);color:#e8e8f0;border:1px solid rgba(255,255,255,.12);}
+.adm-btn.refresh:hover{background:rgba(255,255,255,.14);}
+.adm-btn.clear{background:rgba(217,79,112,.15);color:#e05575;border:1px solid rgba(217,79,112,.3);}
+.adm-btn.clear:hover{background:rgba(217,79,112,.25);}
+.adm-btn.back{background:linear-gradient(135deg,#d94f70,#a83458);color:#fff;}
+
+.adm-body{padding:28px 32px;max-width:1200px;margin:0 auto;}
+@media(max-width:700px){.adm-body{padding:18px 16px;}}
+
+/* Stats row */
+.stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:16px;margin-bottom:28px;}
+.stat-card{
+  background:linear-gradient(160deg,#1a1a2e,#16213e);
+  border:1px solid rgba(255,255,255,.07);
+  border-radius:14px;padding:20px 18px;
+  transition:transform .2s ease;
+}
+.stat-card:hover{transform:translateY(-3px);}
+.stat-card .s-icon{font-size:26px;margin-bottom:8px;}
+.stat-card .s-val{font-size:32px;font-weight:700;color:#fff;margin-bottom:2px;}
+.stat-card .s-label{font-size:12px;color:#9a9ab8;font-weight:500;text-transform:uppercase;letter-spacing:.5px;}
+
+/* Panels */
+.adm-panels{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+@media(max-width:900px){.adm-panels{grid-template-columns:1fr;}}
+.adm-panel{background:#1a1a2e;border:1px solid rgba(255,255,255,.07);border-radius:16px;overflow:hidden;}
+.adm-panel.wide{grid-column:1/-1;}
+.panel-head{padding:16px 20px;border-bottom:1px solid rgba(255,255,255,.06);
+  display:flex;align-items:center;justify-content:space-between;}
+.panel-head h3{font-size:14px;font-weight:600;color:#fff;display:flex;align-items:center;gap:8px;}
+.panel-head .cnt{background:rgba(217,79,112,.2);color:#e05575;font-size:11px;font-weight:700;
+  padding:3px 9px;border-radius:999px;}
+.panel-body{padding:18px 20px;max-height:380px;overflow-y:auto;}
+.panel-body::-webkit-scrollbar{width:4px;}
+.panel-body::-webkit-scrollbar-track{background:transparent;}
+.panel-body::-webkit-scrollbar-thumb{background:rgba(217,79,112,.3);border-radius:4px;}
+
+/* Timeline */
+.tl-item{display:flex;gap:12px;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.04);align-items:flex-start;}
+.tl-item:last-child{border-bottom:none;}
+.tl-dot{width:8px;height:8px;border-radius:50%;background:var(--rose-deep,#a83458);margin-top:5px;flex-shrink:0;}
+.tl-dot.kiss{background:#e05575;}
+.tl-dot.hug{background:#b07fd4;}
+.tl-dot.date-yes{background:#25d366;}
+.tl-dot.date-no{background:#ff6b6b;}
+.tl-dot.plan{background:#4a9eff;}
+.tl-dot.note{background:#e2a24c;}
+.tl-time{font-size:11px;color:#555870;min-width:68px;margin-top:2px;flex-shrink:0;}
+.tl-label{font-size:13.5px;color:#c8c8e0;line-height:1.4;}
+
+/* Notes */
+.note-item{background:rgba(255,255,255,.04);border-radius:10px;padding:12px 14px;margin-bottom:10px;
+  border-left:3px solid var(--rose-deep,#a83458);}
+.note-item:last-child{margin-bottom:0;}
+.note-item .n-context{font-size:11px;color:#9a9ab8;text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px;}
+.note-item .n-text{font-size:14px;color:#e8e8f0;line-height:1.5;}
+.note-item .n-time{font-size:11px;color:#555870;margin-top:6px;}
+
+.empty-msg{font-size:13px;color:#555870;text-align:center;padding:20px 0;}
+
+/* Date/Plan banner */
+.date-banner{
+  border-radius:14px;padding:18px 22px;margin-bottom:24px;
+  display:flex;align-items:center;gap:14px;
+  border:1px solid;
+}
+.date-banner.unanswered{background:rgba(255,200,0,.06);border-color:rgba(255,200,0,.2);}
+.date-banner.answered-yes{background:rgba(37,211,102,.08);border-color:rgba(37,211,102,.25);}
+.date-banner .db-icon{font-size:30px;}
+.date-banner .db-text strong{display:block;font-size:15px;font-weight:600;color:#fff;margin-bottom:2px;}
+.date-banner .db-text span{font-size:13px;color:#9a9ab8;}
+.date-banner.answered-yes .db-text strong{color:#25d366;}
+
+.adm-disclosure{
+  background:rgba(74,158,255,.08);border:1px solid rgba(74,158,255,.25);
+  border-radius:12px;padding:14px 18px;margin-bottom:22px;font-size:12.5px;color:#9db8d8;line-height:1.6;
+}
+</style>
+</head>
+<body>
+
+<div id="rain"></div>
+<canvas id="confetti"></canvas>
+
+<!-- ============================================================
+     MAIN SITE
+============================================================ -->
+<div id="mainSite">
+
+<nav>
+  <div class="brand">💗 Sanjay &amp; Prisha</div>
+  <div class="navlinks">
+    <button class="navbtn active" data-page="home">🏡 Home</button>
+    <button class="navbtn" data-page="kiss">💋 Kiss</button>
+    <button class="navbtn" data-page="hug">🤗 Hug</button>
+    <button class="navbtn" data-page="letter">💌 Letter</button>
+    <button class="navbtn" data-page="promises">🌸 Promises</button>
+    <button class="navbtn" data-page="gifts">🎁 Gifts</button>
+    <button class="navbtn" data-page="memories">✨ Memories</button>
+  </div>
+</nav>
+
+<main>
+
+  <!-- HOME -->
+  <section class="page active" id="home">
+    <div class="hero-emoji">🐱💞</div>
+    <h1 class="title">For My <span class="accent">Prisha</span> 💗</h1>
+    <p class="subtitle">From your Sanjay, with all the love in the world 🌧️</p>
+
+    <div class="card">
+      <span class="badge">💭 A message from Sanjay</span>
+      <p>Prisha, I don't think I say this enough — you make every ordinary day feel like something worth looking forward to. This little page is just for you. ☔💕</p>
+      <p>Tap around, feel the love, and know that somewhere right now Sanjay is smiling just thinking about you. 🌧️</p>
+      <div class="transparency-note">
+        <span class="ic">👀</span>
+        <span>Just so you know — your kisses/hugs count, any notes you save, and whatever you pick for our date will show up on Sanjay's side. Nothing else on this page is tracked or sent anywhere.</span>
+      </div>
+    </div>
+
+    <!-- DATE ASK ON HOME -->
+    <div class="date-ask-home" id="dateAskSection">
+      <h2>🌧️ Prisha, will you go on a date with me? 💐</h2>
+      <p>Just the two of us, some rain, cozy café, and good conversation ☕<br>I've been saving this question for the right moment — and this is it. 🥺</p>
+
+      <div class="date-btns" id="dateBtns">
+        <button id="yesBtn" onclick="sayYes()">💕 Yes, I'd love to!</button>
+        <button id="noBtn" onclick="sayNo()">Hmm, not right now</button>
+      </div>
+      <p class="no-response" id="noResponse">No worries at all 💛 Take your time — the question isn't going anywhere, and neither am I.</p>
+
+      <div class="yes-celebrate" id="yesCelebrate">
+        <p>🎉 Yay!! Sanjay is doing a happy dance right now! 🕺</p>
+        <span id="yesCelebrateSub">Get ready for the best date ever! 🌧️☕✨</span>
+      </div>
+
+      <!-- STEP 1: pick a date -->
+      <div class="plan-step" id="stepDate">
+        <h3>📅 When works for you?</h3>
+        <div class="date-input-row">
+          <input type="date" id="datePick">
+          <button class="plan-next-btn" id="dateNextBtn" onclick="confirmDate()" disabled>Next: pick a place →</button>
+        </div>
+      </div>
+
+      <!-- STEP 2: pick a restaurant -->
+      <div class="plan-step" id="stepResto">
+        <h3>🍽️ Where should we go?</h3>
+        <div class="resto-grid" id="restoGrid">
+          <div class="resto-card" data-r="The Rainy Bean Café">
+            <span class="r-icon">☕</span><h4>The Rainy Bean Café</h4><p>Cozy, quiet, great for rainy days</p>
+          </div>
+          <div class="resto-card" data-r="Little Lane Italian">
+            <span class="r-icon">🍝</span><h4>Little Lane Italian</h4><p>Pasta, candles, slow evenings</p>
+          </div>
+          <div class="resto-card" data-r="Sushi & Stars">
+            <span class="r-icon">🍣</span><h4>Sushi &amp; Stars</h4><p>Rooftop, sushi, city lights</p>
+          </div>
+          <div class="resto-card" data-r="The Garden Grill">
+            <span class="r-icon">🌿</span><h4>The Garden Grill</h4><p>Outdoorsy, relaxed, good for talking</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 3: confirmation -->
+      <div class="plan-step plan-confirm" id="stepConfirm">
+        <div class="pc-summary" id="pcSummary"></div>
+        <div class="pc-sub">Saved! Sanjay will see this and start planning 💕</div>
+      </div>
+    </div>
+
+    <div class="grid3">
+      <div class="tile" onclick="go('kiss')">
+        <span class="t-icon">💋</span>
+        <span class="t-label">Tap to Kiss</span>
+        <span class="t-count" id="kissHomeLbl">0 kisses</span>
+      </div>
+      <div class="tile" onclick="go('hug')">
+        <span class="t-icon">🤗</span>
+        <span class="t-label">Tap to Hug</span>
+        <span class="t-count" id="hugHomeLbl">0 hugs</span>
+      </div>
+      <div class="tile" onclick="go('letter')">
+        <span class="t-icon">💌</span>
+        <span class="t-label">Love Letter</span>
+        <span class="t-count">read it →</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- KISS -->
+  <section class="page" id="kiss">
+    <div class="hero-emoji">💋</div>
+    <h1 class="title">A Kiss for <span class="accent">Prisha</span></h1>
+    <div class="card" style="text-align:center;">
+      <span class="badge">💋 Tap as many times as you want</span>
+      <p>Every tap is a real kiss from Sanjay, sent straight through the screen. 😘</p>
+      <div class="big-tap" onclick="incr('kiss')">
+        <span class="bt-icon">💋</span>
+        <span class="bt-lbl">Tap for a Kiss</span>
+      </div>
+      <div class="count-big" id="kissBig">0 kisses sent 💋</div>
+    </div>
+    <div class="card note-box">
+      <h3>✍️ Leave a note for Sanjay</h3>
+      <textarea id="kissNote" placeholder="What did this make you feel? 💕"></textarea>
+      <button class="save-note-btn" onclick="saveNote('Kiss Page',document.getElementById('kissNote'))">💾 Save note for Sanjay</button>
+      <p class="note-saved-msg" id="kissNoteSaved">✅ Note saved! Sanjay will see it 💗</p>
+    </div>
+  </section>
+
+  <!-- HUG -->
+  <section class="page" id="hug">
+    <div class="hero-emoji">🤗</div>
+    <h1 class="title">A Hug for <span class="accent">Prisha</span></h1>
+    <div class="card" style="text-align:center;">
+      <span class="badge">🤗 Warm and never-ending</span>
+      <p>Tight, warm, and exactly as long as you need. Sanjay is hugging you through the screen right now. 🫂</p>
+      <div class="big-tap" onclick="incr('hug')">
+        <span class="bt-icon">🤗</span>
+        <span class="bt-lbl">Tap for a Hug</span>
+      </div>
+      <div class="count-big" id="hugBig">0 hugs sent 🤗</div>
+    </div>
+    <div class="card note-box">
+      <h3>✍️ Leave a note for Sanjay</h3>
+      <textarea id="hugNote" placeholder="What would you say while hugging him?... 💞"></textarea>
+      <button class="save-note-btn" onclick="saveNote('Hug Page',document.getElementById('hugNote'))">💾 Save note for Sanjay</button>
+      <p class="note-saved-msg" id="hugNoteSaved">✅ Note saved! Sanjay will see it 💗</p>
+    </div>
+  </section>
+
+  <!-- LETTER -->
+  <section class="page" id="letter">
+    <div class="hero-emoji">💌</div>
+    <h1 class="title">My Letter to <span class="accent">Prisha</span></h1>
+    <div class="card">
+      <span class="badge">💗 From Sanjay, with love</span>
+      <p>My Prisha,</p>
+      <p>I don't think words will ever be enough, but I'll keep trying — because you deserve every single one of them.</p>
+      <p>I love how you laugh before you finish your own sentence. I love how your eyes light up when something makes you genuinely happy. I love that even on your hardest days, you still make everything around you a little brighter.</p>
+      <p>If I could pick one feeling to keep with me forever, it would be the way I feel every time I think about you — warm, lucky, and completely sure. 🌧️💞</p>
+      <p style="text-align:right;font-family:'Dancing Script',cursive;font-size:24px;color:var(--rose-deep);margin-top:8px;">— always yours, Sanjay</p>
+    </div>
+    <div class="card note-box">
+      <h3>✍️ Write Sanjay back</h3>
+      <textarea id="letterNote" placeholder="What did this letter make you feel?... 🌸"></textarea>
+      <button class="save-note-btn" onclick="saveNote('Love Letter Reply',document.getElementById('letterNote'))">💾 Save reply for Sanjay</button>
+      <p class="note-saved-msg" id="letterNoteSaved">✅ Reply saved! Sanjay will see it 💗</p>
+    </div>
+  </section>
+
+  <!-- PROMISES -->
+  <section class="page" id="promises">
+    <div class="hero-emoji">🌸</div>
+    <h1 class="title">Sanjay's <span class="accent">Promises</span></h1>
+    <div class="card">
+      <p class="promise-hint">💡 Tap the promises that mean the most to you — you can send your picks to Sanjay.</p>
+      <ul class="promise-list" id="promiseList">
+        <li data-p="I'll always tell you the truth, even when it's not easy."><span class="num">💗</span>I'll always tell you the truth, even when it's not easy.</li>
+        <li data-p="I'll dance with you in the kitchen, badly, and without music."><span class="num">💗</span>I'll dance with you in the kitchen, badly, and without music.</li>
+        <li data-p="I'll listen to every rant about your day without checking my phone."><span class="num">💗</span>I'll listen to every rant about your day without checking my phone.</li>
+        <li data-p="I'll bring you your favourite snacks when you're feeling low — no questions asked."><span class="num">💗</span>I'll bring you your favourite snacks when you're feeling low — no questions asked.</li>
+        <li data-p="I'll never let an argument outlast the day it started."><span class="num">💗</span>I'll never let an argument outlast the day it started.</li>
+        <li data-p="I'll hold your hand through every storm, even the ones I accidentally caused."><span class="num">💗</span>I'll hold your hand through every storm, even the ones I accidentally caused. 🌧️</li>
+        <li data-p="I'll keep choosing you, every single morning."><span class="num">💗</span>I'll keep choosing you, every single morning.</li>
+      </ul>
+      <p style="text-align:center;font-size:12.5px;color:#8a5a72;margin-bottom:4px;">Only sent to Sanjay when you tap the button below 👇</p>
+      <button class="send-promises-btn" onclick="sendPromises()">💌 Send my favourite promises to Sanjay</button>
+      <p class="promise-sent-msg" id="promiseSentMsg">✅ Sent! Sanjay will see which ones you picked 💗</p>
+    </div>
+  </section>
+
+  <!-- GIFTS -->
+  <section class="page" id="gifts">
+    <div class="hero-emoji">🎁</div>
+    <h1 class="title">Little Gifts for <span class="accent">Prisha</span></h1>
+    <div class="gift-grid">
+
+      <div class="gift">
+        <span class="g-icon">🌷</span><h3>A Bouquet</h3>
+        <p>Pick one and send it Sanjay's way 💐</p>
+        <select id="giftBouquet">
+          <option value="Roses">Roses</option>
+          <option value="Tulips">Tulips</option>
+          <option value="Sunflowers">Sunflowers</option>
+          <option value="Mixed wildflowers">Mixed wildflowers</option>
+        </select>
+        <button class="gift-send-btn" onclick="sendGift('bouquet','giftBouquet')">Send bouquet request</button>
+        <p class="gift-sent-msg" id="bouquetSentMsg">✅ Sent to Sanjay 💗</p>
+      </div>
+
+      <div class="gift">
+        <span class="g-icon">🍫</span><h3>Favourite Chocolate</h3>
+        <p>Tell Sanjay what to get you 🍫</p>
+        <input type="text" id="giftChocolate" placeholder="e.g. Dark chocolate with almonds">
+        <button class="gift-send-btn" onclick="sendGift('chocolate','giftChocolate')">Send to Sanjay</button>
+        <p class="gift-sent-msg" id="chocolateSentMsg">✅ Sent to Sanjay 💗</p>
+      </div>
+
+      <div class="gift">
+        <span class="g-icon">🎧</span><h3>Dedicate a Song</h3>
+        <p>Which song says it best right now? 🎶</p>
+        <input type="text" id="giftSong" placeholder="Song title — artist">
+        <button class="gift-send-btn" onclick="sendGift('song','giftSong')">Dedicate to Sanjay</button>
+        <p class="gift-sent-msg" id="songSentMsg">✅ Sent to Sanjay 💗</p>
+      </div>
+
+      <div class="gift">
+        <span class="g-icon">📖</span><h3>Write Him a Letter</h3>
+        <p>Something just for him, in your own words 🌸</p>
+        <textarea id="giftLetter" placeholder="Dear Sanjay..."></textarea>
+        <button class="gift-send-btn" onclick="sendGift('letter','giftLetter')">Send letter</button>
+        <p class="gift-sent-msg" id="letterGiftSentMsg">✅ Sent to Sanjay 💗</p>
+      </div>
+
+      <div class="gift">
+        <span class="g-icon">🌙</span><h3>Late Night Call</h3>
+        <p>Pick a time you're free to talk till 2 AM 🌙</p>
+        <input type="time" id="giftCallTime">
+        <button class="gift-send-btn" onclick="sendGift('call','giftCallTime')">Send call time</button>
+        <p class="gift-sent-msg" id="callSentMsg">✅ Sent to Sanjay 💗</p>
+      </div>
+
+      <div class="gift">
+        <span class="g-icon">☕</span><h3>Coffee Dates</h3>
+        <p>What are you in the mood for? ☕</p>
+        <select id="giftCoffee">
+          <option value="Cappuccino">Cappuccino</option>
+          <option value="Cold coffee">Cold coffee</option>
+          <option value="Filter coffee">Filter coffee</option>
+          <option value="Hot chocolate instead">Hot chocolate instead</option>
+        </select>
+        <button class="gift-send-btn" onclick="sendGift('coffee','giftCoffee')">Send preference</button>
+        <p class="gift-sent-msg" id="coffeeSentMsg">✅ Sent to Sanjay 💗</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- MEMORIES -->
+  <section class="page" id="memories">
+    <div class="hero-emoji">✨</div>
+    <h1 class="title">Our <span class="accent">Memories</span></h1>
+    <div class="card">
+      <div class="memory"><span class="m-icon">☔</span><div><strong>The rainy evening walk</strong><span>We got completely soaked and didn't care one bit.</span></div></div>
+      <div class="memory"><span class="m-icon">🍜</span><div><strong>That late-night food run</strong><span>Talking for hours over food that went completely cold.</span></div></div>
+      <div class="memory"><span class="m-icon">🎬</span><div><strong>Movie night, half-watched</strong><span>We talked through the whole thing anyway — and it was perfect.</span></div></div>
+      <div class="memory"><span class="m-icon">🌙</span><div><strong>That 2 AM conversation</strong><span>The one where we said things we'd never said out loud before.</span></div></div>
+      <div class="memory"><span class="m-icon">🐾</span><div><strong>The stray cat we fed</strong><span>You named it before we even finished feeding it.</span></div></div>
+    </div>
+  </section>
+
+</main>
+
+<footer>made with 💗 by Sanjay, only for Prisha 🌧️
+  <span class="foot-note">Kisses, hugs, notes &amp; your date choice are visible to Sanjay. Nothing else is tracked.</span>
+</footer>
+<button id="musicBtn" onclick="toggleMusic()">🎵</button>
+
+</div><!-- end #mainSite -->
+
+
+<!-- ============================================================
+     ADMIN DASHBOARD
+============================================================ -->
+<div id="adminDash">
+
+  <div class="adm-header">
+    <div class="adm-title">
+      🎛️ Sanjay's Dashboard
+      <span>— what Prisha has shared</span>
+    </div>
+    <div class="adm-actions">
+      <button class="adm-btn refresh" onclick="renderAdmin()">🔄 Refresh</button>
+      <button class="adm-btn clear" onclick="clearData()">🗑️ Clear All</button>
+      <button class="adm-btn back" onclick="goBack()">← Back to Site</button>
+    </div>
+  </div>
+
+  <div class="adm-body">
+
+    <div class="adm-disclosure">
+      ℹ️ This dashboard only shows things Prisha explicitly did on the page — kisses/hugs count, notes she chose to save, and the date/restaurant she picked. The site tells her this on the home page, so nothing here is hidden from her.
+    </div>
+
+    <!-- Date Banner -->
+    <div class="date-banner unanswered" id="dateBanner">
+      <span class="db-icon">💐</span>
+      <div class="db-text">
+        <strong id="dateBannerTitle">Date question — awaiting answer</strong>
+        <span id="dateBannerSub">Prisha hasn't answered yet...</span>
+      </div>
+    </div>
+
+    <!-- Stats row -->
+    <div class="stats-grid" id="statsGrid">
+      <div class="stat-card"><div class="s-icon">💋</div><div class="s-val" id="st-kisses">0</div><div class="s-label">Total Kisses</div></div>
+      <div class="stat-card"><div class="s-icon">🤗</div><div class="s-val" id="st-hugs">0</div><div class="s-label">Total Hugs</div></div>
+      <div class="stat-card"><div class="s-icon">✍️</div><div class="s-val" id="st-notes">0</div><div class="s-label">Notes Left</div></div>
+      <div class="stat-card"><div class="s-icon">📅</div><div class="s-val" id="st-planDate" style="font-size:16px;">—</div><div class="s-label">Date Picked</div></div>
+      <div class="stat-card"><div class="s-icon">🍽️</div><div class="s-val" id="st-planResto" style="font-size:14px;">—</div><div class="s-label">Restaurant Picked</div></div>
+    </div>
+
+    <div class="adm-panels">
+
+      <!-- Activity Timeline -->
+      <div class="adm-panel wide">
+        <div class="panel-head">
+          <h3>📊 Highlights</h3>
+          <span class="cnt" id="timelineCnt">0</span>
+        </div>
+        <div class="panel-body" id="timelineBody">
+          <p class="empty-msg">Nothing yet. Share the site with Prisha! 💕</p>
+        </div>
+      </div>
+
+      <!-- Notes from Prisha -->
+      <div class="adm-panel wide">
+        <div class="panel-head">
+          <h3>✍️ Notes from Prisha</h3>
+          <span class="cnt" id="notesCnt">0</span>
+        </div>
+        <div class="panel-body" id="notesBody">
+          <p class="empty-msg">Prisha hasn't left any notes yet. 🥺</p>
+        </div>
+      </div>
+
+      <!-- Favourite Promises -->
+      <div class="adm-panel">
+        <div class="panel-head">
+          <h3>🌸 Her Favourite Promises</h3>
+          <span class="cnt" id="promisesCnt">0</span>
+        </div>
+        <div class="panel-body" id="promisesBody">
+          <p class="empty-msg">Nothing picked yet.</p>
+        </div>
+      </div>
+
+      <!-- Gift Wishes -->
+      <div class="adm-panel">
+        <div class="panel-head">
+          <h3>🎁 Gift Wishes</h3>
+          <span class="cnt" id="giftsCnt">0</span>
+        </div>
+        <div class="panel-body" id="giftsBody">
+          <p class="empty-msg">Nothing sent yet.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div><!-- end #adminDash -->
+
+
+<script>
+/* ============================================================
+   DATA LAYER — localStorage
+============================================================ */
+const STORE_KEY = 'sp_data_v4';
+let D = loadData();
+
+function defaultData(){
+  return {
+    kisses: 0,
+    hugs: 0,
+    dateAnswer: null,      // 'yes' | 'no' | null
+    dateAnswerTime: null,
+    plan: { date: null, restaurant: null },
+    notes: [],             // {context, text, time}
+    favoritePromises: [],  // array of promise strings she picked
+    giftWishes: [],        // {type, value, time}
+    timeline: []            // {time, label, dot}
+  };
+}
+
+function loadData(){
+  try{
+    const d = localStorage.getItem(STORE_KEY);
+    if(!d) return defaultData();
+    const parsed = JSON.parse(d);
+    // merge onto defaults so older saved data (before some fields existed)
+    // doesn't end up missing arrays/objects the app now expects
+    const merged = Object.assign(defaultData(), parsed);
+    merged.plan = Object.assign(defaultData().plan, parsed.plan||{});
+    if(!Array.isArray(merged.notes)) merged.notes = [];
+    if(!Array.isArray(merged.favoritePromises)) merged.favoritePromises = [];
+    if(!Array.isArray(merged.giftWishes)) merged.giftWishes = [];
+    if(!Array.isArray(merged.timeline)) merged.timeline = [];
+    return merged;
+  }catch(e){ return defaultData(); }
+}
+
+function save(){
+  try{ localStorage.setItem(STORE_KEY, JSON.stringify(D)); }catch(e){}
+}
+
+function track(label, dotClass='plan'){
+  D.timeline.push({ time: now(), label, dot: dotClass });
+  save();
+}
+
+function now(){
+  return new Date().toLocaleTimeString('en-IN',{hour:'2-digit',minute:'2-digit',second:'2-digit'});
+}
+
+function nowFull(){
+  return new Date().toLocaleString('en-IN',{
+    day:'2-digit',month:'short',year:'numeric',
+    hour:'2-digit',minute:'2-digit',second:'2-digit'
+  });
+}
+
+function escapeHtml(str){
+  const d = document.createElement('div');
+  d.textContent = str;
+  return d.innerHTML;
+}
+
+/* ============================================================
+   NAVIGATION
+============================================================ */
+const pages = document.querySelectorAll('.page');
+const navBtns = document.querySelectorAll('.navbtn');
+
+function go(id){
+  pages.forEach(p => p.classList.toggle('active', p.id === id));
+  navBtns.forEach(b => b.classList.toggle('active', b.dataset.page === id));
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+navBtns.forEach(b => b.addEventListener('click', () => go(b.dataset.page)));
+
+/* ============================================================
+   COUNTERS  (fixed: field name now matches D.kisses / D.hugs)
+============================================================ */
+function incr(type){
+  if(type === 'kiss'){
+    D.kisses++;
+    document.getElementById('kissBig').textContent = `${D.kisses} kisses sent 💋`;
+    document.getElementById('kissHomeLbl').textContent = `${D.kisses} kisses`;
+  } else {
+    D.hugs++;
+    document.getElementById('hugBig').textContent = `${D.hugs} hugs sent 🤗`;
+    document.getElementById('hugHomeLbl').textContent = `${D.hugs} hugs`;
+  }
+  save();
+  heartBurst(type);
+}
+
+function heartBurst(type){
+  const emojis = type==='kiss' ? ['💋','💗','😘','💕'] : ['🤗','💞','🫂','💓'];
+  for(let i=0;i<7;i++){
+    const s = document.createElement('div');
+    s.textContent = emojis[Math.floor(Math.random()*emojis.length)];
+    s.style.cssText = `position:fixed;font-size:${18+Math.random()*20}px;
+      left:${25+Math.random()*50}vw;top:${35+Math.random()*25}vh;
+      pointer-events:none;z-index:600;animation:floatUp .95s ease forwards;`;
+    document.body.appendChild(s);
+    setTimeout(()=>s.remove(),1000);
+  }
+}
+
+/* ============================================================
+   NOTES
+============================================================ */
+function saveNote(context, textarea){
+  const text = textarea.value.trim();
+  if(!text){ alert('Please write something first! 💕'); return; }
+  D.notes.push({ context, text, time: nowFull() });
+  track(`✍️ Left a note on "${context}"`, 'note');
+  save();
+  textarea.value = '';
+  const savedMsg = document.getElementById(
+    context==='Kiss Page'?'kissNoteSaved':context==='Hug Page'?'hugNoteSaved':'letterNoteSaved'
+  );
+  if(savedMsg){ savedMsg.style.display='block'; setTimeout(()=>savedMsg.style.display='none',3000); }
+}
+
+/* ============================================================
+   PROMISES — she picks the ones she wants to send
+============================================================ */
+document.getElementById('promiseList').addEventListener('click', (e) => {
+  const li = e.target.closest('li');
+  if(!li) return;
+  li.classList.toggle('picked');
+});
+
+function sendPromises(){
+  const picked = [...document.querySelectorAll('#promiseList li.picked')].map(li => li.dataset.p);
+  if(picked.length === 0){ alert('Pick at least one promise first! 💕'); return; }
+  D.favoritePromises = picked;
+  track(`🌸 Sent ${picked.length} favourite promise(s) to Sanjay`, 'note');
+  save();
+  const msg = document.getElementById('promiseSentMsg');
+  msg.style.display = 'block';
+  setTimeout(()=>msg.style.display='none', 3000);
+}
+
+/* ============================================================
+   GIFT WISHES — she fills something in and sends it to Sanjay
+============================================================ */
+const giftLabels = {
+  bouquet: '🌷 Bouquet request',
+  chocolate: '🍫 Favourite chocolate',
+  song: '🎧 Song dedication',
+  letter: '📖 Letter for Sanjay',
+  call: '🌙 Late night call time',
+  coffee: '☕ Coffee preference'
+};
+const giftMsgIds = {
+  bouquet: 'bouquetSentMsg', chocolate: 'chocolateSentMsg', song: 'songSentMsg',
+  letter: 'letterGiftSentMsg', call: 'callSentMsg', coffee: 'coffeeSentMsg'
+};
+
+function sendGift(type, fieldId){
+  const field = document.getElementById(fieldId);
+  const value = field.value.trim();
+  if(!value){ alert('Please fill this in first! 💕'); return; }
+  D.giftWishes.push({ type, value, time: nowFull() });
+  track(`${giftLabels[type]}: sent to Sanjay`, 'note');
+  save();
+  const msg = document.getElementById(giftMsgIds[type]);
+  msg.style.display = 'block';
+  setTimeout(()=>msg.style.display='none', 3000);
+  if(field.tagName === 'TEXTAREA' || field.type === 'text') field.value = '';
+}
+
+/* ============================================================
+   DATE QUESTION + PLANNING FLOW
+============================================================ */
+function sayYes(){
+  D.dateAnswer = 'yes';
+  D.dateAnswerTime = nowFull();
+  track('💕 Said YES to the date!', 'date-yes');
+  save();
+
+  document.getElementById('dateBtns').style.display = 'none';
+  document.getElementById('noResponse').classList.remove('show');
+  document.getElementById('yesCelebrate').classList.add('show');
+  document.getElementById('yesCelebrateSub').textContent = "Let's pick the day and place together 🌧️☕✨";
+  launchConfetti();
+
+  // reveal step 1
+  document.getElementById('stepDate').classList.add('show');
+
+  // set min date to today
+  const dateInput = document.getElementById('datePick');
+  dateInput.min = new Date().toISOString().split('T')[0];
+  dateInput.addEventListener('input', () => {
+    document.getElementById('dateNextBtn').disabled = !dateInput.value;
+  });
+}
+
+
+/* ============================================================
+   PLAYFUL "NO" BUTTON — it dodges when she tries to click it
+   ============================================================ */
+const noBtn = document.getElementById('noBtn');
+let noDodges = 0;
+
+function dodgeNoButton(e){
+  if(e) e.preventDefault();
+
+  const btn = document.getElementById('noBtn');
+  const pad = 14;
+  const margin = 12;
+
+  // Use fixed positioning so the button can move anywhere inside the viewport.
+  btn.classList.add('dodging');
+
+  const rect = btn.getBoundingClientRect();
+  const maxX = Math.max(pad, window.innerWidth - rect.width - pad);
+  const maxY = Math.max(pad, window.innerHeight - rect.height - pad);
+
+  // Pick a position that is meaningfully different from its current position.
+  let x, y, attempts = 0;
+  do {
+    x = margin + Math.random() * Math.max(1, maxX - margin);
+    y = margin + Math.random() * Math.max(1, maxY - margin);
+    attempts++;
+  } while (
+    attempts < 30 &&
+    Math.hypot(x - rect.left, y - rect.top) < Math.min(window.innerWidth, window.innerHeight) * 0.22
+  );
+
+  btn.style.left = `${Math.min(x, maxX)}px`;
+  btn.style.top = `${Math.min(y, maxY)}px`;
+
+  noDodges++;
+  const messages = [
+    "Hehe 😜 too slow!",
+    "Nope! You almost got me 😂",
+    "Try again… if you can catch it! 💕",
+    "The NO button is shy 🙈",
+    "Are you sure you want to say no? 🥺",
+    "Almost! 😏"
+  ];
+  document.getElementById('noResponse').textContent =
+    messages[Math.min(noDodges - 1, messages.length - 1)];
+
+  // Keep it usable after many moves.
+  if(noDodges >= 6){
+    document.getElementById('noResponse').classList.add('show');
+  }
+}
+
+// Desktop: move before the click can happen.
+noBtn.addEventListener('mouseenter', dodgeNoButton);
+
+// Mobile/tablet: move on touch attempt.
+noBtn.addEventListener('touchstart', dodgeNoButton, {passive:false});
+
+// Keyboard users can still activate the button normally.
+noBtn.addEventListener('keydown', (e) => {
+  if(e.key === 'Enter' || e.key === ' ') {
+    sayNo();
+  }
+});
+
+window.addEventListener('resize', () => {
+  const btn = document.getElementById('noBtn');
+  if(btn.classList.contains('dodging')){
+    const r = btn.getBoundingClientRect();
+    btn.style.left = `${Math.min(r.left, window.innerWidth - r.width - 8)}px`;
+    btn.style.top = `${Math.min(r.top, window.innerHeight - r.height - 8)}px`;
+  }
+});
+
+function sayNo(){
+  D.dateAnswer = 'no';
+  track('🙅 Said not right now', 'date-no');
+  save();
+  document.getElementById('noResponse').classList.add('show');
+}
+
+function confirmDate(){
+  const val = document.getElementById('datePick').value;
+  if(!val) return;
+  D.plan.date = val;
+  track(`📅 Picked a date: ${val}`, 'plan');
+  save();
+
+  document.getElementById('stepDate').classList.remove('show');
+  document.getElementById('stepResto').classList.add('show');
+}
+
+document.getElementById('restoGrid').addEventListener('click', (e) => {
+  const card = e.target.closest('.resto-card');
+  if(!card) return;
+  document.querySelectorAll('.resto-card').forEach(c => c.classList.remove('picked'));
+  card.classList.add('picked');
+  const resto = card.dataset.r;
+  D.plan.restaurant = resto;
+  track(`🍽️ Picked a restaurant: ${resto}`, 'plan');
+  save();
+
+  setTimeout(() => {
+    document.getElementById('stepResto').classList.remove('show');
+    const confirmEl = document.getElementById('stepConfirm');
+    confirmEl.classList.add('show');
+    const prettyDate = new Date(D.plan.date).toLocaleDateString('en-IN',{weekday:'long',day:'numeric',month:'long'});
+    document.getElementById('pcSummary').textContent = `${prettyDate} at ${resto} 💕`;
+  }, 350);
+});
+
+/* ============================================================
+   CONFETTI
+============================================================ */
+const canvas = document.getElementById('confetti');
+const ctx2 = canvas.getContext('2d');
+function sizeCanvas(){ canvas.width=window.innerWidth; canvas.height=window.innerHeight; }
+window.addEventListener('resize', sizeCanvas); sizeCanvas();
+let particles = [];
+
+function launchConfetti(){
+  particles = [];
+  const colors = ['#d94f70','#b07fd4','#e2a24c','#ff8fa3','#ffd6e0','#a97fc7'];
+  for(let i=0;i<160;i++){
+    particles.push({
+      x: canvas.width/2, y: canvas.height*.38,
+      vx: (Math.random()-.5)*18, vy: (Math.random()-1.4)*16,
+      size: 5+Math.random()*8,
+      color: colors[Math.floor(Math.random()*colors.length)],
+      life: 130+Math.random()*50
+    });
+  }
+  requestAnimationFrame(animConf);
+}
+
+function animConf(){
+  ctx2.clearRect(0,0,canvas.width,canvas.height);
+  particles.forEach(p=>{
+    p.x+=p.vx; p.y+=p.vy; p.vy+=.3; p.life--;
+    ctx2.globalAlpha = Math.max(p.life/170, 0);
+    ctx2.fillStyle = p.color;
+    ctx2.beginPath();
+    ctx2.arc(p.x,p.y,p.size/2,0,Math.PI*2);
+    ctx2.fill();
+  });
+  ctx2.globalAlpha=1;
+  particles = particles.filter(p=>p.life>0);
+  if(particles.length>0) requestAnimationFrame(animConf);
+  else ctx2.clearRect(0,0,canvas.width,canvas.height);
+}
+
+/* ============================================================
+   RAIN
+============================================================ */
+const rainLayer = document.getElementById('rain');
+const rainEmojis = ['🌧️','💧','☔','💕','💗','🌸','💞','❣️','💓','🌂'];
+
+function spawnDrop(){
+  const d = document.createElement('div');
+  d.className = 'drop';
+  d.textContent = rainEmojis[Math.floor(Math.random()*rainEmojis.length)];
+  const dur = 5 + Math.random()*7;
+  d.style.left = Math.random()*100+'vw';
+  d.style.fontSize = (11+Math.random()*16)+'px';
+  d.style.setProperty('--drift', (Math.random()*100-50)+'px');
+  d.style.animationDuration = dur+'s';
+  rainLayer.appendChild(d);
+  setTimeout(()=>d.remove(), (dur*1000)+400);
+}
+setInterval(spawnDrop, 280);
+for(let i=0;i<14;i++) setTimeout(spawnDrop, i*130);
+
+/* ============================================================
+   MUSIC
+============================================================ */
+let audioCtx, isPlaying=false, loopTimer;
+const musicBtn = document.getElementById('musicBtn');
+const melody = [523,659,784,659,698,587,523,587,659,784,880,784,659,523];
+let noteIdx = 0;
+
+function toggleMusic(){
+  if(!audioCtx) audioCtx = new(window.AudioContext||window.webkitAudioContext)();
+  isPlaying ? stopMusic() : playMusic();
+}
+function playMusic(){
+  isPlaying=true; musicBtn.classList.add('playing'); musicBtn.textContent='⏸';
+  function playNote(){
+    if(!isPlaying) return;
+    const osc=audioCtx.createOscillator();
+    const gain=audioCtx.createGain();
+    osc.type='sine';
+    osc.frequency.value=melody[noteIdx%melody.length];
+    gain.gain.setValueAtTime(0,audioCtx.currentTime);
+    gain.gain.linearRampToValueAtTime(0.07,audioCtx.currentTime+0.08);
+    gain.gain.linearRampToValueAtTime(0,audioCtx.currentTime+0.75);
+    osc.connect(gain).connect(audioCtx.destination);
+    osc.start(); osc.stop(audioCtx.currentTime+0.8);
+    noteIdx++;
+    loopTimer=setTimeout(playNote,480);
+  }
+  playNote();
+}
+function stopMusic(){
+  isPlaying=false; clearTimeout(loopTimer);
+  musicBtn.classList.remove('playing'); musicBtn.textContent='🎵';
+}
+
+/* ============================================================
+   URL ROUTING — main vs admin
+============================================================ */
+function checkRoute(){
+  if(window.location.hash === '#sanjay-admin'){
+    document.getElementById('mainSite').style.display = 'none';
+    document.getElementById('adminDash').style.display = 'block';
+    renderAdmin();
+  } else {
+    document.getElementById('mainSite').style.display = 'block';
+    document.getElementById('adminDash').style.display = 'none';
+  }
+}
+
+function goBack(){
+  window.location.hash = '';
+}
+
+window.addEventListener('hashchange', checkRoute);
+
+/* ============================================================
+   ADMIN RENDER
+============================================================ */
+function renderAdmin(){
+  D = loadData(); // always fresh from storage
+
+  document.getElementById('st-kisses').textContent = D.kisses;
+  document.getElementById('st-hugs').textContent = D.hugs;
+  document.getElementById('st-notes').textContent = D.notes.length;
+  document.getElementById('st-planDate').textContent = D.plan.date
+    ? new Date(D.plan.date).toLocaleDateString('en-IN',{day:'numeric',month:'short'})
+    : '—';
+  document.getElementById('st-planResto').textContent = D.plan.restaurant || '—';
+
+  document.getElementById('timelineCnt').textContent = D.timeline.length;
+
+  // Date Banner
+  const banner = document.getElementById('dateBanner');
+  if(D.dateAnswer === 'yes'){
+    banner.className = 'date-banner answered-yes';
+    document.getElementById('dateBannerTitle').textContent = '💕 SHE SAID YES TO THE DATE!!';
+    document.getElementById('dateBannerSub').textContent = `Answered YES at ${D.dateAnswerTime||'unknown time'} 🎉`;
+  } else if(D.dateAnswer === 'no'){
+    banner.className = 'date-banner unanswered';
+    document.getElementById('dateBannerTitle').textContent = 'Date question — she said not right now';
+    document.getElementById('dateBannerSub').textContent = 'Give it some time 💛';
+  } else {
+    banner.className = 'date-banner unanswered';
+    document.getElementById('dateBannerTitle').textContent = 'Date question — not yet answered';
+    document.getElementById('dateBannerSub').textContent = 'Waiting on Prisha...';
+  }
+
+  // Highlights timeline
+  const tBody = document.getElementById('timelineBody');
+  if(D.timeline.length === 0){
+    tBody.innerHTML = '<p class="empty-msg">Nothing yet. Share the site with Prisha! 💕</p>';
+  } else {
+    tBody.innerHTML = [...D.timeline].reverse().map(e => `
+      <div class="tl-item">
+        <div class="tl-dot ${e.dot||'plan'}"></div>
+        <div class="tl-time">${escapeHtml(e.time)}</div>
+        <div class="tl-label">${escapeHtml(e.label)}</div>
+      </div>`).join('');
+  }
+
+  // Notes
+  const nBody = document.getElementById('notesBody');
+  document.getElementById('notesCnt').textContent = D.notes.length;
+  if(D.notes.length === 0){
+    nBody.innerHTML = '<p class="empty-msg">Prisha hasn\'t saved any notes yet. 🥺</p>';
+  } else {
+    nBody.innerHTML = [...D.notes].reverse().map(n => `
+      <div class="note-item">
+        <div class="n-context">${escapeHtml(n.context)}</div>
+        <div class="n-text">"${escapeHtml(n.text)}"</div>
+        <div class="n-time">${escapeHtml(n.time)}</div>
+      </div>`).join('');
+  }
+
+  // Favourite Promises
+  const pBody = document.getElementById('promisesBody');
+  document.getElementById('promisesCnt').textContent = D.favoritePromises.length;
+  if(D.favoritePromises.length === 0){
+    pBody.innerHTML = '<p class="empty-msg">Nothing picked yet.</p>';
+  } else {
+    pBody.innerHTML = D.favoritePromises.map(p => `
+      <div class="note-item">
+        <div class="n-text">💗 ${escapeHtml(p)}</div>
+      </div>`).join('');
+  }
+
+  // Gift Wishes
+  const gBody = document.getElementById('giftsBody');
+  document.getElementById('giftsCnt').textContent = D.giftWishes.length;
+  if(D.giftWishes.length === 0){
+    gBody.innerHTML = '<p class="empty-msg">Nothing sent yet.</p>';
+  } else {
+    gBody.innerHTML = [...D.giftWishes].reverse().map(g => `
+      <div class="note-item">
+        <div class="n-context">${escapeHtml(giftLabels[g.type]||g.type)}</div>
+        <div class="n-text">${escapeHtml(g.value)}</div>
+        <div class="n-time">${escapeHtml(g.time)}</div>
+      </div>`).join('');
+  }
+}
+
+function clearData(){
+  if(!confirm('Clear ALL of Prisha\'s activity data? This cannot be undone.')) return;
+  D = defaultData();
+  save();
+  renderAdmin();
+}
+
+/* ============================================================
+   INIT
+============================================================ */
+window.addEventListener('load', () => {
+  D = loadData();
+
+  // Sync counters to UI
+  if(D.kisses > 0){
+    document.getElementById('kissBig').textContent = `${D.kisses} kisses sent 💋`;
+    document.getElementById('kissHomeLbl').textContent = `${D.kisses} kisses`;
+  }
+  if(D.hugs > 0){
+    document.getElementById('hugBig').textContent = `${D.hugs} hugs sent 🤗`;
+    document.getElementById('hugHomeLbl').textContent = `${D.hugs} hugs`;
+  }
+
+  // Date already answered?
+  if(D.dateAnswer === 'yes'){
+    document.getElementById('dateBtns').style.display = 'none';
+    document.getElementById('yesCelebrate').classList.add('show');
+    document.getElementById('yesCelebrateSub').textContent = "Let's pick the day and place together 🌧️☕✨";
+
+    if(!D.plan.restaurant){
+      // resume planning where she left off
+      const dateInput = document.getElementById('datePick');
+      dateInput.min = new Date().toISOString().split('T')[0];
+      dateInput.addEventListener('input', () => {
+        document.getElementById('dateNextBtn').disabled = !dateInput.value;
+      });
+      if(D.plan.date){
+        dateInput.value = D.plan.date;
+        document.getElementById('dateNextBtn').disabled = false;
+        document.getElementById('stepResto').classList.add('show');
+      } else {
+        document.getElementById('stepDate').classList.add('show');
+      }
+    } else {
+      const prettyDate = new Date(D.plan.date).toLocaleDateString('en-IN',{weekday:'long',day:'numeric',month:'long'});
+      document.getElementById('pcSummary').textContent = `${prettyDate} at ${D.plan.restaurant} 💕`;
+      document.getElementById('stepConfirm').classList.add('show');
+      document.querySelectorAll('.resto-card').forEach(c => {
+        if(c.dataset.r === D.plan.restaurant) c.classList.add('picked');
+      });
+    }
+  } else if(D.dateAnswer === 'no'){
+    document.getElementById('noResponse').classList.add('show');
+  }
+
+  checkRoute();
+});
+</script>
+</body>
+</html>
